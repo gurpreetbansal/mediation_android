@@ -59,6 +59,7 @@
                         android:src="@mipmap/email" />
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/login__email"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -86,6 +87,7 @@
             android:src="@mipmap/lock_login" />
 
         <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            android:id="@+id/login__password"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -97,7 +99,7 @@
     </LinearLayout>
 
     <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
-        android:id="@+id/txt_log_in"
+        android:id="@+id/login__txt_log_in"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
