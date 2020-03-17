@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/img_account_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:padding="@dimen/_15sdp"
+            android:src="@mipmap/back_button"
+            android:tint="@color/gray_eight"
+            android:layout_gravity="center"/>
+
+        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="@string/account_settings"
+            android:textColor="@color/gray_eight"
+            android:textSize="@dimen/_19sdp">
+
+        </com.t.meditationapp.Custom_Widgets.CustomBoldtextView>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:padding="@dimen/_15sdp" />
+    </LinearLayout>
+
+    <ScrollView
+
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|left"
+                        android:text="@string/first_name"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:gravity="center|left"
+                        android:text="@string/joeden"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/edit"
+                        android:textColor="#f89c90"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <!--            <com.t.myapplication.Custom_Widgets.CustomBoldtextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_gravity="center"-->
+                <!--                android:gravity="center|left"-->
+                <!--                android:text="@string/notifications"-->
+                <!--                android:textColor="#333333"-->
+                <!--                android:textSize="@dimen/_17sdp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|left"
+                        android:text="@string/last_name"
+                       android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:gravity="center|left"
+                        android:text="@string/schafer"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/edit"
+                        android:textColor="#f89c90"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <!--            <com.t.myapplication.Custom_Widgets.CustomBoldtextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_gravity="center"-->
+                <!--                android:gravity="center|left"-->
+                <!--                android:text="@string/notifications"-->
+                <!--                android:textColor="#333333"-->
+                <!--                android:textSize="@dimen/_17sdp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|left"
+                        android:text="@string/email_address"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:gravity="center|left"
+                        android:text="@string/email_value"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_13sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/edit"
+                        android:textColor="#f89c90"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <!--            <com.t.myapplication.Custom_Widgets.CustomBoldtextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_gravity="center"-->
+                <!--                android:gravity="center|left"-->
+                <!--                android:text="@string/notifications"-->
+                <!--                android:textColor="#333333"-->
+                <!--                android:textSize="@dimen/_17sdp" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:orientation="vertical">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center|left"
+                        android:text="@string/password"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_7sdp"
+                        android:gravity="center|left"
+                        android:text="@string/connected"
+                        android:textColor="@color/gray_eight"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
+
+                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="@string/change"
+                        android:textColor="#f89c90"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+                <!--            <com.t.myapplication.Custom_Widgets.CustomBoldtextView-->
+                <!--                android:layout_width="match_parent"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:layout_gravity="center"-->
+                <!--                android:gravity="center|left"-->
+                <!--                android:text="@string/notifications"-->
+                <!--                android:textColor="#333333"-->
+                <!--                android:textSize="@dimen/_17sdp" />-->
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
