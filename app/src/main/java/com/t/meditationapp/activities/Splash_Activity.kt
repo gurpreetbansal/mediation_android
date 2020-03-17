@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.t.meditationapp.R
+import com.t.meditationapp.javaActivities.LoginActivity
 
 class Splash_Activity : AppCompatActivity() {
     private val SPLASH_TIME_OUT = 3000
