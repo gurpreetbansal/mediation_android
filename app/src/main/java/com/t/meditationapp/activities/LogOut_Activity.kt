@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.t.meditationapp.R
+import com.t.meditationapp.javaActivities.LoginActivityNew
 import kotlinx.android.synthetic.main.quit_activity.*
 
 class LogOut_Activity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class LogOut_Activity : AppCompatActivity() {
         setContentView(R.layout.quit_activity)
 
         txt_yes.setOnClickListener(View.OnClickListener {
-            val voice = Intent(this@LogOut_Activity, LoginActivity::class.java)
+            val voice = Intent(this@LogOut_Activity, LoginActivityNew::class.java)
             startActivity(voice)
         })
         txt_no.setOnClickListener(View.OnClickListener {

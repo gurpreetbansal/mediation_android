@@ -33,8 +33,8 @@ TextView txt_login,txt_sign_up;
 
 
         ll_facebook=(LinearLayout)findViewById(R.id.ll_facebook);
-        txt_login=(TextView) findViewById(R.id.txt_login);
-        txt_sign_up=(TextView) findViewById(R.id.txt_sign_up);
+        txt_login=(TextView) findViewById(R.id.signup_txt_login);
+        txt_sign_up=(TextView) findViewById(R.id.signup__txt_sign_up);
         ll_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,7 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.t.meditationapp.R
-import com.t.meditationapp.javaActivities.LoginActivity
+import com.t.meditationapp.javaActivities.LoginActivityNew
 
 class Splash_Activity : AppCompatActivity() {
     private val SPLASH_TIME_OUT = 3000
@@ -28,7 +28,7 @@ class Splash_Activity : AppCompatActivity() {
         setContentView(R.layout.splash_activity)
         handler.postDelayed(
             {
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, LoginActivityNew::class.java)
                 // val intent = Intent(this, VideocallingActivity::class.java)
                 startActivity(intent)
                 finish()

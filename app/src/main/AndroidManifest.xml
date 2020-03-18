@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".javaActivities.LoginActivity"></activity>
-        <activity android:name=".javaActivities.SignupActivity"></activity>
+        <activity android:name=".javaActivities.LoginActivityNew"></activity>
+        <activity android:name=".javaActivities.SignupActivityNew"></activity>
         <activity android:name=".activities.AbundanceActivity" />
         <activity android:name=".activities.FinicialActivity" />
         <activity android:name=".activities.HealthActivity" />

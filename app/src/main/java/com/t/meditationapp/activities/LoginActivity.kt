@@ -18,7 +18,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
-        txt_log_in.setOnClickListener(View.OnClickListener {
+        login__txt_log_in.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             // val intent = Intent(this, VideocallingActivity::class.java)
             startActivity(intent)
