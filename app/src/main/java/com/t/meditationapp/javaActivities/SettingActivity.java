@@ -2,15 +2,21 @@ package com.t.meditationapp.javaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
+import com.t.meditationapp.ModelClasses.LogoutModelClass;
 import com.t.meditationapp.R;
 
 public class SettingActivity extends AppCompatActivity {
 
     private CustomBoldtextView txt_logout,txt_privacy,txt_terms_condition;
+
+    ApiInterface apiInterface;
+    LogoutModelClass logoutModelClass=new LogoutModelClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +31,8 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+                Intent intent=new Intent(SettingActivity.this,LogoutActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -41,9 +48,21 @@ public class SettingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent intent=new Intent(SettingActivity.this,TermsAndConditionActivity.class);
+                startActivity(intent);
 
             }
         });
 
+        txt_privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(SettingActivity.this,PrivacyPolicyActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
-}
+
+    }

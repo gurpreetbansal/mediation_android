@@ -13,6 +13,7 @@ import com.app.myapplication.fragment.LibraryFragment
 import com.app.myapplication.fragment.RecordFragment
 import com.app.myapplication.fragment.SoundFragment
 import com.t.meditationapp.R
+import com.t.meditationapp.javaActivities.LogoutActivity
 import kotlinx.android.synthetic.main.bottom_navi_layout.*
 
 
@@ -267,7 +268,7 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
             supportFragmentManager.popBackStack()
         } else {
             // finish()
-            val intent = Intent(this@HomeActivity, LogOut_Activity::class.java)
+            val intent = Intent(this@HomeActivity, LogoutActivity::class.java)
             startActivity(intent)
         }
     }

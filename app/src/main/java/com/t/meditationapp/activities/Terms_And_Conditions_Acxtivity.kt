@@ -50,8 +50,8 @@ class Terms_And_Conditions_Acxtivity : AppCompatActivity() {
 
 
 
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("https://selfpause.com/terms-conditions/");
+//        webview.getSettings().setJavaScriptEnabled(true);
+//        webview.loadUrl("https://clientstagingdev.com/meditation/api/auth/termsCondtions");
 
 
         //webview = WebView(this)

@@ -99,6 +99,7 @@
                 android:textColor="@color/gray_eight"
                 android:layout_marginTop="@dimen/_40sdp"
                 android:textSize="@dimen/_15sdp" />
+
             <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_privacy"
                 android:layout_width="match_parent"
