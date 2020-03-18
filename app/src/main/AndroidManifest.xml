@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".javaActivities.LoginActivityNew"></activity>
-        <activity android:name=".javaActivities.SignupActivityNew"></activity>
+        <activity android:name=".javaActivities.SettingActivity"></activity>
+        <activity android:name=".javaActivities.LoginActivityNew" />
+        <activity android:name=".javaActivities.SignupActivityNew" />
         <activity android:name=".activities.AbundanceActivity" />
         <activity android:name=".activities.FinicialActivity" />
         <activity android:name=".activities.HealthActivity" />
@@ -42,8 +43,7 @@
         <activity android:name=".activities.HelpCenter_Activity" />
         <activity android:name=".activities.Terms_And_Conditions_Acxtivity" />
         <activity android:name=".activities.GetMore_Activity" />
-        <activity android:name=".activities.LogOutActivity" />
-<!--        <activity android:name=".activities.LoginActivity" />-->
+        <activity android:name=".activities.LogOutActivity" /> <!-- <activity android:name=".activities.LoginActivity" /> -->
         <activity android:name=".activities.LogOut_Activity" />
         <activity
             android:name=".activities.HomeActivity"
