@@ -3,6 +3,7 @@ package com.t.meditationapp.javaActivities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.t.meditationapp.activities.VoiceSelect_Activity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.UUID;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +34,7 @@ public class LoginActivityNew extends AppCompatActivity {
     ApiInterface apiInterface;
     private LoginSendData loginSendData = new LoginSendData();
 
-    String email_txt, password_txt, name_txt, social_id, social_type, device_type, device_token, response;
+    String email_txt, password_txt, name_txt, social_id, social_type, device_type = "Android", device_token, response;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,8 @@ public class LoginActivityNew extends AppCompatActivity {
 
                 loginSendData.setEmail(email_txt);
                 loginSendData.setPassword(password_txt);
+                loginSendData.setDeviceToken(UUID.randomUUID().toString());
+                loginSendData.setDeviceType(device_type);
 
                 if (validateName(email_txt, ed_email, "email is required")) {
                     return;
@@ -67,7 +72,7 @@ public class LoginActivityNew extends AppCompatActivity {
                 if (validateName(password_txt, ed_password, "password is required")) {
                     return;
                 }
-                if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")){
+                if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")) {
                     return;
                 }
 
@@ -89,11 +94,17 @@ public class LoginActivityNew extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     LoginModelClass resource = response.body();
 //                    Toast.makeText(LoginActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
-                    Log.e("success", resource.getSuccess().toString());
+//                    Log.e("success", resource.getSuccess().toString());
+                    Log.e("success", resource.getData().getUserId());
                     assert resource != null;
                     if (resource.getSuccess()) {
                         String code = resource.getCode();
                         String msg = resource.getMessages();
+
+                        SharedPreferences pref = getApplicationContext().getSharedPreferences("mypref", 0); // 0 - for private mode
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("user_id", resource.getData().getUserId());
+                        editor.apply();
 
                         startActivity(new Intent(LoginActivityNew.this, VoiceSelect_Activity.class));
                         Toast.makeText(LoginActivityNew.this, msg, Toast.LENGTH_SHORT).show();
@@ -123,7 +134,7 @@ public class LoginActivityNew extends AppCompatActivity {
     }
 
     private boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
-        if (name.length()<6) {
+        if (name.length() < 6) {
             nameET.setError(err_msg);
             nameET.requestFocus();
             return true;

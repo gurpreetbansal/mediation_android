@@ -1,5 +1,6 @@
 package com.t.meditationapp.Api;
 
+import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
 import com.t.meditationapp.ModelClasses.SignupModelClass;
@@ -16,5 +17,8 @@ public interface ApiInterface {
 
     @POST("auth/login")
     Call<LoginModelClass> login(@Body LoginSendData loginSendData);
+
+    @POST("auth/getProfile")
+    Call<GetProfileResponse> getProfile();
 
 }

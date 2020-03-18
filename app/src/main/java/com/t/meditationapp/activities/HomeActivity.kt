@@ -1,41 +1,29 @@
 package com.t.meditationapp.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import com.t.meditationapp.R
-
-import com.app.myapplication.fragment.*
-import kotlinx.android.synthetic.main.bottom_navi_layout.*
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import java.net.Inet4Address
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
-
-
-
-
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.app.myapplication.fragment.AccountThreeFragment
+import com.app.myapplication.fragment.LibraryFragment
+import com.app.myapplication.fragment.RecordFragment
+import com.app.myapplication.fragment.SoundFragment
+import com.t.meditationapp.R
+import kotlinx.android.synthetic.main.bottom_navi_layout.*
 
 
 class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
 
     var load_view: String = ""
     private lateinit var textMessage: TextView
+
+    val mypreference = "mypref"
+    val user_id = "user_id"
+
 //    private val onNavigationItemSelectedListener =
 //        BottomNavigationView.OnNavigationItemSelectedListener { item ->
 //            when (item.itemId) {
@@ -116,11 +104,19 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
         setContentView(R.layout.home_activity)
         val homeFragment1 = LibraryFragment.newInstance()
         openFragment(homeFragment1)
+
+
+        val pref = getSharedPreferences(
+            mypreference,
+            Context.MODE_PRIVATE
+        )
+        Toast.makeText(this,pref.getString(user_id, ""), Toast.LENGTH_SHORT).show()
+
         lib.setOnClickListener {
-            img_bottom_lib.visibility=View.VISIBLE
-            img_bottom_sound.visibility=View.INVISIBLE
-            img_bottom_record.visibility=View.INVISIBLE
-            img_bottom_account.visibility=View.INVISIBLE
+            img_bottom_lib.visibility = View.VISIBLE
+            img_bottom_sound.visibility = View.INVISIBLE
+            img_bottom_record.visibility = View.INVISIBLE
+            img_bottom_account.visibility = View.INVISIBLE
 
 
             val homeFragment = LibraryFragment.newInstance()
@@ -128,10 +124,10 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
 
         }
         sound.setOnClickListener {
-            img_bottom_lib.visibility=View.INVISIBLE
-            img_bottom_sound.visibility=View.VISIBLE
-            img_bottom_record.visibility=View.INVISIBLE
-            img_bottom_account.visibility=View.INVISIBLE
+            img_bottom_lib.visibility = View.INVISIBLE
+            img_bottom_sound.visibility = View.VISIBLE
+            img_bottom_record.visibility = View.INVISIBLE
+            img_bottom_account.visibility = View.INVISIBLE
 
 
             val homeFragment = SoundFragment.newInstance()
@@ -139,32 +135,32 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
 
         }
         record.setOnClickListener {
-            img_bottom_lib.visibility=View.INVISIBLE
-            img_bottom_sound.visibility=View.INVISIBLE
-            img_bottom_record.visibility=View.VISIBLE
-            img_bottom_account.visibility=View.INVISIBLE
+            img_bottom_lib.visibility = View.INVISIBLE
+            img_bottom_sound.visibility = View.INVISIBLE
+            img_bottom_record.visibility = View.VISIBLE
+            img_bottom_account.visibility = View.INVISIBLE
 
 
             val homeFragment = RecordFragment.newInstance()
             openFragment(homeFragment)
-          //  val intent = Intent(this@HomeActivity, My_RecordingActivity::class.java)
-           // startActivity(intent)
+            //  val intent = Intent(this@HomeActivity, My_RecordingActivity::class.java)
+            // startActivity(intent)
 
         }
 
         account.setOnClickListener {
-            img_bottom_lib.visibility=View.INVISIBLE
-            img_bottom_sound.visibility=View.INVISIBLE
-            img_bottom_record.visibility=View.INVISIBLE
-            img_bottom_account.visibility=View.VISIBLE
+            img_bottom_lib.visibility = View.INVISIBLE
+            img_bottom_sound.visibility = View.INVISIBLE
+            img_bottom_record.visibility = View.INVISIBLE
+            img_bottom_account.visibility = View.VISIBLE
 
 
             val homeFragment = AccountThreeFragment.newInstance()
             openFragment(homeFragment)
 
         }
-       // val navView: BottomNavigationView = findViewById(R.id.nav_view)
-       // navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        // val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        // navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 //        val extras = getIntent().getExtras()
 //        if (null != extras)
 //        {
@@ -206,13 +202,13 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
 //        }
 //        else {
 
-        img_bottom_lib.visibility=View.VISIBLE
-        img_bottom_sound.visibility=View.INVISIBLE
-        img_bottom_record.visibility=View.INVISIBLE
-        img_bottom_account.visibility=View.INVISIBLE
-            val homeFragment = LibraryFragment.newInstance()
-            openFragment(homeFragment)
-      //  }
+        img_bottom_lib.visibility = View.VISIBLE
+        img_bottom_sound.visibility = View.INVISIBLE
+        img_bottom_record.visibility = View.INVISIBLE
+        img_bottom_account.visibility = View.INVISIBLE
+        val homeFragment = LibraryFragment.newInstance()
+        openFragment(homeFragment)
+        //  }
 
     }
 
@@ -230,7 +226,6 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
 //            super.onBackPressed()
 //        }
 //    }
-
 
 
 //    override fun onBackPressed() {
@@ -271,9 +266,9 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
         if (supportFragmentManager.backStackEntryCount > 1) {
             supportFragmentManager.popBackStack()
         } else {
-           // finish()
-                        val intent=Intent(this@HomeActivity,LogOut_Activity::class.java)
-               startActivity(intent)
+            // finish()
+            val intent = Intent(this@HomeActivity, LogOut_Activity::class.java)
+            startActivity(intent)
         }
     }
 
