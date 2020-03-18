@@ -64,11 +64,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="0.7"
-                    android:inputType="textWebEmailAddress"
-                    android:gravity="center|left"
-                    android:maxLines="1"
                     android:background="@android:color/transparent"
+                    android:gravity="center|left"
                     android:hint="@string/email"
+                    android:inputType="textWebEmailAddress"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>
@@ -95,11 +96,12 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_weight="0.7"
-                    android:maxLines="1"
-                    android:gravity="center|left"
-                    android:inputType="textWebPassword"
                     android:background="@android:color/transparent"
+                    android:gravity="center|left"
                     android:hint="@string/password"
+                    android:inputType="textWebPassword"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/_5sdp"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>

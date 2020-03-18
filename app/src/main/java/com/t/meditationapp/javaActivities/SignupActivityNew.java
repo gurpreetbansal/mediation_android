@@ -1,7 +1,10 @@
 package com.t.meditationapp.javaActivities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -21,6 +24,8 @@ import com.t.meditationapp.ModelClasses.SignupSendData;
 import com.t.meditationapp.R;
 import com.t.meditationapp.activities.VoiceSelect_Activity;
 
+import java.util.UUID;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +34,7 @@ public class SignupActivityNew extends AppCompatActivity {
 
     LinearLayout ll_facebook;
     TextView txt_login, txt_sign_up;
-    String email_txt, password_txt, name_txt, social_id, social_type, device_type, device_token, response;
+    String email_txt, password_txt, name_txt, social_id, social_type, device_type = "Android", device_token, response;
     ApiInterface apiInterface;
     private SignupSendData sendData = new SignupSendData();
     CustomBoldEditText ed_email, ed_name, ed_password;
@@ -83,9 +88,6 @@ public class SignupActivityNew extends AppCompatActivity {
 
                 Log.e("email", email_txt);
 
-                sendData.setFirstName(name_txt);
-                sendData.setEmail(email_txt);
-                sendData.setPassword(password_txt);
 
                 if (validateName(name_txt, ed_name, "name is reuired")) {
                     return;
@@ -100,11 +102,17 @@ public class SignupActivityNew extends AppCompatActivity {
                     return;
                 }
 
+//                    SyncStateContract.Constants.deviceToken = UUID.randomUUID().toString();
+
+
+                sendData.setFirstName(name_txt);
+                sendData.setEmail(email_txt);
+                sendData.setPassword(password_txt);
 
 //                sendData.setSocialId(social_id);
 //                sendData.setSocialType(social_type);
-//                sendData.setDeviceType(device_type);
-//                sendData.setDeviceToken(device_token);
+                sendData.setDeviceType(device_type);
+                sendData.setDeviceToken(UUID.randomUUID().toString());
                 Log.e("email+", sendData.getEmail());
                 retrofitData();
             }
@@ -128,13 +136,22 @@ public class SignupActivityNew extends AppCompatActivity {
                         String code = resource.getCode();
                         String msg = resource.getMessages();
 
+                        SharedPreferences pref = getApplicationContext().getSharedPreferences("mypref", 0); // 0 - for private mode
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.putString("user_id", resource.getData().getUserId());
+                        editor.apply();
+
+//                        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+//                        pref = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
+//                        pref.getString(user_id,"");
+
                         startActivity(new Intent(SignupActivityNew.this, VoiceSelect_Activity.class));
                         Toast.makeText(SignupActivityNew.this, msg, Toast.LENGTH_SHORT).show();
 
                         Log.e("Success Response++++", code + " " + msg);
+                    } else {
+                        Toast.makeText(SignupActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    Toast.makeText(SignupActivityNew.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                 }
             }
 
