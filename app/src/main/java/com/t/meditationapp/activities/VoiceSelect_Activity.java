@@ -39,6 +39,9 @@ TextView img_next;
         img_back_tool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent cat=new Intent(VoiceSelect_Activity.this,LogOut_Activity.class);
+                startActivity(cat);
+
                 finish();
             }
         });

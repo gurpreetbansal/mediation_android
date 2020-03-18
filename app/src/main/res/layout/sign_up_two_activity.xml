@@ -47,15 +47,20 @@
             android:layout_weight="0.2"
             android:src="@mipmap/first_name"
             android:padding="@dimen/_10sdp"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+            android:id="@+id/signup__name"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:text="@string/first_name"
+            android:hint="@string/first_name"
+            android:maxLines="1"
+            android:inputType="text"
+            android:paddingEnd="@dimen/_5sdp"
+            android:background="@android:color/transparent"
             android:textSize="@dimen/_15sdp"
             android:layout_gravity="center"
             android:gravity="center|left"
-            android:textColor="@color/gray_cthree_"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
         android:layout_marginTop="@dimen/_6sdp"
@@ -69,15 +74,20 @@
             android:layout_weight="0.2"
             android:src="@mipmap/email"
             android:padding="@dimen/_13sdp"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+            android:id="@+id/signup__email"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:text="@string/email"
+            android:hint="@string/email"
+            android:paddingEnd="@dimen/_5sdp"
+            android:maxLines="1"
+            android:inputType="textWebEmailAddress"
+            android:background="@android:color/transparent"
             android:textSize="@dimen/_15sdp"
             android:layout_gravity="center"
             android:gravity="center|left"
-            android:textColor="@color/gray_cthree_"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,18 +101,22 @@
             android:layout_weight="0.2"
             android:src="@mipmap/lock_login"
             android:padding="@dimen/_10sdp"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+            android:id="@+id/signup__password"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.7"
-            android:text="@string/password"
+            android:hint="@string/password"
+            android:maxLines="1"
+            android:inputType="textWebPassword"
             android:textSize="@dimen/_15sdp"
+            android:background="@android:color/transparent"
             android:layout_gravity="center"
             android:gravity="center|left"
-            android:textColor="@color/gray_cthree_"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
     <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
-        android:id="@+id/txt_sign_up"
+        android:id="@+id/signup__txt_sign_up"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:text="@string/sign_up"
@@ -115,7 +129,7 @@
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_2sdp"/>
     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
-        android:id="@+id/txt_login"
+        android:id="@+id/signup_txt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/have_an"
