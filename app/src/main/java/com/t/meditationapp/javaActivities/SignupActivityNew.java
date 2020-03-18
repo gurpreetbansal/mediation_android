@@ -96,9 +96,9 @@ public class SignupActivityNew extends AppCompatActivity {
                 if (validateName(password_txt, ed_password, "password is required")) {
                     return;
                 }
-//                if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")){
-//                    return;
-//                }
+                if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")) {
+                    return;
+                }
 
 
 //                sendData.setSocialId(social_id);
@@ -155,12 +155,12 @@ public class SignupActivityNew extends AppCompatActivity {
         return false;
     }
 
-//        private boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
-//        if (name.isEmpty()) {
-//            nameET.setError(err_msg);
-//            nameET.requestFocus();
-//            return true;
-//        }
-//        return false;
-//    }
+    private boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
+        if (name.length() < 6) {
+            nameET.setError(err_msg);
+            nameET.requestFocus();
+            return true;
+        }
+        return false;
+    }
 }
