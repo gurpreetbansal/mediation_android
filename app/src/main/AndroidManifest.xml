@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".javaActivities.PrivacyPolicyActivity"></activity>
+        <activity android:name=".javaActivities.PrivacyPolicyActivity" />
         <activity android:name=".javaActivities.TermsAndConditionActivity" />
         <activity android:name=".javaActivities.LogoutActivity" />
         <activity android:name=".javaActivities.AccountSettingActivityNew" />

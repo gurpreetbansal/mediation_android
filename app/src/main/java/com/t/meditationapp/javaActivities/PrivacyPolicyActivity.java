@@ -2,15 +2,18 @@ package com.t.meditationapp.javaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Api.RetrofitClientInstance;
 import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
+import com.t.meditationapp.LoadingBar.ProgressDialogClass;
 import com.t.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
-import com.t.meditationapp.ModelClasses.GetResponseTermsAndCondition;
 import com.t.meditationapp.R;
 
 import retrofit2.Call;
@@ -19,10 +22,14 @@ import retrofit2.Response;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 
-    private CustomBoldtextView privacy_title_txt,privacy_description_Txt_view;
+    private CustomBoldtextView privacy_title_txt;
     private ImageView img_privacy_back;
 
-    ApiInterface apiInterface;
+    private ApiInterface apiInterface;
+    private ProgressDialog progressDialog;
+    private WebView webView;
+    String url = "https://selfpause.com/privacy-policy/";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setContentView(R.layout.privacy_fragment);
 
         privacy_title_txt=findViewById(R.id.privacy_title_txt);
-        privacy_description_Txt_view=findViewById(R.id.privacy_description_Txt_view);
+        webView=findViewById(R.id.webView_policy_Txt_view);
         img_privacy_back=findViewById(R.id.img_privacy_back);
 
         img_privacy_back.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +46,12 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        showWebPage();
+
+        progressDialog = new ProgressDialog(PrivacyPolicyActivity.this);
+        progressDialog.setMessage("Please wait...");
+        showDialog();
 
 
         apiInterface= RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
@@ -52,17 +65,64 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
                 GetResponsePricyAndPolicy getResponsePricyAndPolicy=response.body();
 
                 privacy_title_txt.setText(getResponsePricyAndPolicy.getData().getTitle());
-                privacy_description_Txt_view.setText(getResponsePricyAndPolicy.getData().getDescription());
 
+                hideDialog();
+
+//                String descText=getResponsePricyAndPolicy.getData().getDescription();
+//                final Spanned spannedText= Html.fromHtml(descText);
+//
+//                privacy_description_Txt_view.setText(spannedText);
             }
 
             @Override
             public void onFailure(Call<GetResponsePricyAndPolicy> call, Throwable t) {
 
+                t.printStackTrace();
+                hideDialog();
+
             }
         });
 
+//        WebSettings webSettings = webView.getSettings();
+//        webSettings.setJavaScriptEnabled(true);
+//        webView.loadUrl("https://selfpause.com/privacy-policy/");
 
 
+
+    }
+
+    private void showWebPage(){
+
+        progressDialog = new ProgressDialog(PrivacyPolicyActivity.this);
+        progressDialog.setMessage("Loading website.......");
+        webView.setWebViewClient(new ProgressDialogClass(progressDialog,getApplicationContext()));
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.loadUrl(url);
+    }
+
+    public void showDialog() {
+
+        if(progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+    }
+
+    public void hideDialog() {
+
+        if(progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        hideDialog();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideDialog();
     }
 }

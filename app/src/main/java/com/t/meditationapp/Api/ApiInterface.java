@@ -1,7 +1,10 @@
 package com.t.meditationapp.Api;
 
+import android.text.Spanned;
+
 import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
+import com.t.meditationapp.ModelClasses.GetResponseSubscription;
 import com.t.meditationapp.ModelClasses.GetResponseTermsAndCondition;
 import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
@@ -9,6 +12,7 @@ import com.t.meditationapp.ModelClasses.LogoutModelClass;
 import com.t.meditationapp.ModelClasses.PrivacyPolicyModelClass;
 import com.t.meditationapp.ModelClasses.SignupModelClass;
 import com.t.meditationapp.ModelClasses.SignupSendData;
+import com.t.meditationapp.ModelClasses.SubscriptionModelClass;
 import com.t.meditationapp.ModelClasses.TermsAndConditionModelClass;
 
 import retrofit2.Call;
@@ -36,6 +40,9 @@ public interface ApiInterface {
 
     @GET("auth/privacyPolicy")
     Call<GetResponsePricyAndPolicy> privacyAndPolicy();
+
+    @POST("auth/checkSubscription")
+    Call<GetResponseSubscription> subscription(@Body SubscriptionModelClass subscriptionModelClass);
 
 
 

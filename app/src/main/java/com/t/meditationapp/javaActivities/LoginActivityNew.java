@@ -2,6 +2,7 @@ package com.t.meditationapp.javaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class LoginActivityNew extends AppCompatActivity {
     ApiInterface apiInterface;
     private LoginSendData loginSendData = new LoginSendData();
 
+    ProgressDialog progressDialog;
+
     String email_txt, password_txt, name_txt, social_id, social_type, device_type = "Android", device_token, response;
 
     @Override
@@ -45,6 +48,9 @@ public class LoginActivityNew extends AppCompatActivity {
         ed_password = findViewById(R.id.login__password);
         btn_login = findViewById(R.id.login__txt_log_in);
         btn_signup = findViewById(R.id.txt_sign_up);
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Please wait......");
 
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +81,7 @@ public class LoginActivityNew extends AppCompatActivity {
                 if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")) {
                     return;
                 }
-
+                  showDialog();
 //                    Log.e("email+", loginSendData.getEmail());
                 retrofitData();
             }
@@ -108,6 +114,9 @@ public class LoginActivityNew extends AppCompatActivity {
 
                         startActivity(new Intent(LoginActivityNew.this, VoiceSelect_Activity.class));
                         Toast.makeText(LoginActivityNew.this, msg, Toast.LENGTH_SHORT).show();
+
+                        hideDialog();
+
                         Log.e("Success Response++++", code + " " + msg);
                     } else {
                         Toast.makeText(LoginActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
@@ -119,6 +128,8 @@ public class LoginActivityNew extends AppCompatActivity {
             public void onFailure(Call<LoginModelClass> call, Throwable t) {
                 Log.e("Failure Response++++", t.getMessage());
                 Toast.makeText(LoginActivityNew.this, t.toString(), Toast.LENGTH_SHORT).show();
+
+                hideDialog();
             }
         });
 
@@ -140,5 +151,17 @@ public class LoginActivityNew extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    public void showDialog() {
+
+        if(progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+    }
+
+    public void hideDialog() {
+
+        if(progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
     }
 }

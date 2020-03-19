@@ -114,4 +114,7 @@
     <string name="logout">Logout</string>
     <string name="motivation_to_exercise">Motivation to Excercise</string>
 
+
+    <string name="loading">Please wait...</string>
+
 </resources>
