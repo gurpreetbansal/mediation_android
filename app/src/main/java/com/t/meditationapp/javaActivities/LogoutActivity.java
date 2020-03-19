@@ -21,7 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LogoutActivity extends AppCompatActivity {
+public class LogoutActivity extends BaseActivity {
 
     private CustomBoldtextView txt_no,txt_yes,txt_help_center_quit;
 

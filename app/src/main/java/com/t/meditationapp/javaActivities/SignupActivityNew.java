@@ -31,7 +31,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupActivityNew extends AppCompatActivity {
+public class SignupActivityNew extends BaseActivity {
 
     LinearLayout ll_facebook;
     TextView txt_login, txt_sign_up;

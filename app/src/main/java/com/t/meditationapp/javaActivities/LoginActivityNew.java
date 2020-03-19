@@ -27,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivityNew extends AppCompatActivity {
+public class LoginActivityNew extends BaseActivity {
 
     com.t.meditationapp.Custom_Widgets.CustomBoldEditText ed_password, ed_email;
     com.t.meditationapp.Custom_Widgets.CustomRegularTextView btn_login;

@@ -14,7 +14,7 @@ import com.t.meditationapp.R;
 import com.t.meditationapp.activities.HelpCenter_Activity;
 import com.t.meditationapp.activities.SupportActivity;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
 
     private CustomBoldtextView txt_logout,txt_privacy,txt_terms_condition,txt_help_center,txt_support;
     private ImageView img_account_back;
