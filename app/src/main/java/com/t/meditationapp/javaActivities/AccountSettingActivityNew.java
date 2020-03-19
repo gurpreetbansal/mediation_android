@@ -1,13 +1,24 @@
 package com.t.meditationapp.javaActivities;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -18,8 +29,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Api.RetrofitClientInstance;
+import com.t.meditationapp.Custom_Widgets.CustomBoldEditText;
 import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.t.meditationapp.Custom_Widgets.CustomRegularEditText;
 import com.t.meditationapp.ModelClasses.ChangePasswordResponse;
@@ -36,19 +50,25 @@ import retrofit2.Response;
 
 public class AccountSettingActivityNew extends BaseActivity {
     ImageView btn_back;
-    String email_txt, password_txt, name_txt, userID;
+    String userID;
     ApiInterface apiInterface;
     String mypreference = "mypref", user_id = "user_id";
-    CustomBoldtextView tv_firstname, tv_lastname, tv_email, tv_password, firstname_edit, lastname_edit, email_edit, password_change;
+    CustomBoldtextView tv_email, firstname_edit, password_edit, firstname_change, password_change, save_changes, password_title;
+    LinearLayout new_password_container;
     GetProfileResponse resource;
-    AppCompatButton done, change_password;
     RelativeLayout progress_rl;
-    CustomRegularEditText old_password, new_password;
-    Dialog dialog;
+    CustomBoldEditText tv_firstname, tv_password, tv_new_password;
+//    Dialog dialog;
+//    SimpleDraweeView profile_image;
+
+    private static final int CAMERA_REQUEST = 1888;
+    ImageView imageView;
+    private static final int MY_CAMERA_PERMISSION_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.account_two_fragment);
 
         SharedPreferences pref = getSharedPreferences(mypreference, Context.MODE_PRIVATE);
@@ -56,29 +76,85 @@ public class AccountSettingActivityNew extends BaseActivity {
 
         btn_back = findViewById(R.id.img_account_back);
         tv_firstname = findViewById(R.id.account_two_frag__first_name);
-        tv_lastname = findViewById(R.id.account_two_frag__last_name);
         tv_email = findViewById(R.id.account_two_frag__email);
         tv_password = findViewById(R.id.account_two_frag__password);
-        firstname_edit = findViewById(R.id.account_two_frag__first_name_edit);
-        lastname_edit = findViewById(R.id.account_two_frag__last_name_edit);
-        email_edit = findViewById(R.id.account_two_fragment__email_name_edit);
-        done = findViewById(R.id.account_two_frag__done);
+        tv_new_password = findViewById(R.id.account_two_frag__new_password);
         progress_rl = findViewById(R.id.account_two_frag__prog_rl);
+        firstname_change = findViewById(R.id.account_two_frag__first_name_change);
+        firstname_edit = findViewById(R.id.account_two_frag__first_name_edit);
         password_change = findViewById(R.id.account_two_frag__password_change);
+        password_edit = findViewById(R.id.account_two_frag__password_edit);
+        password_title = findViewById(R.id.account_two_frag__password_title);
+        save_changes = findViewById(R.id.account_two_frag__done);
+        new_password_container = findViewById(R.id.account_two_frag__new_password_container);
+//        profile_image = findViewById(R.id.account_two_frag__profile_image);
+        imageView = findViewById(R.id.account_two_frag__profile_image_temp);
+
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @RequiresApi(api = Build.VERSION_CODES.M)
+//            @Override
+//            public void onClick(View view) {
+//                if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
+//                {
+//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
+//                }
+//                else
+//                {
+//                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//                }
+//            }
+//        });
 
         firstname_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog("First Name", tv_firstname);
+                tv_firstname.setEnabled(true);
+                firstname_edit.setVisibility(View.GONE);
+                firstname_change.setVisibility(View.VISIBLE);
             }
         });
 
-        lastname_edit.setOnClickListener(new View.OnClickListener() {
+        firstname_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog("Last Name", tv_lastname);
+                tv_firstname.setEnabled(false);
+                firstname_edit.setVisibility(View.VISIBLE);
+                firstname_change.setVisibility(View.GONE);
             }
         });
+
+        password_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tv_password.setEnabled(true);
+                password_edit.setVisibility(View.GONE);
+                password_change.setVisibility(View.VISIBLE);
+                password_title.setText(R.string.old_password);
+                new_password_container.setVisibility(View.VISIBLE);
+                tv_new_password.setEnabled(true);
+            }
+        });
+
+        password_change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                password_edit.setVisibility(View.VISIBLE);
+                password_change.setVisibility(View.GONE);
+                tv_password.setEnabled(false);
+                tv_new_password.setEnabled(false);
+            }
+        });
+
+        save_changes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                progress_rl.setVisibility(View.VISIBLE);
+                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_password.getText().toString(),tv_new_password.getText().toString());
+            }
+        });
+
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,21 +169,6 @@ public class AccountSettingActivityNew extends BaseActivity {
         } else {
             Toast.makeText(this, "Internet not connected", Toast.LENGTH_SHORT).show();
         }
-
-        done.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_lastname.getText().toString());
-            }
-        });
-
-        password_change.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                passwordDialog();
-            }
-        });
-
     }
 
     public void retrofitGetProfileData(String userID) {
@@ -123,12 +184,9 @@ public class AccountSettingActivityNew extends BaseActivity {
                     assert resource != null;
                     Log.e("success", resource.getMessages());
                     if (resource.getSuccess()) {
-//                        Log.e("success", resource.getData().getFirstName() + " " + resource.getData().getEmail() + " " + resource.getData().getPassword());
                         tv_firstname.setText(resource.getData().getFirstName());
-                        tv_lastname.setText(resource.getData().getLastName());
                         tv_email.setText(resource.getData().getEmail());
                         progress_rl.setVisibility(View.GONE);
-
                     } else {
                         Toast.makeText(AccountSettingActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
                     }
@@ -144,10 +202,10 @@ public class AccountSettingActivityNew extends BaseActivity {
 
     }
 
-    public void retrofitEditProfileData(final String userID, final String firstName, final String lastName) {
+    public void retrofitEditProfileData(final String userID, final String firstName, String old_password, String new_password) {
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, lastName);
+        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, firstName, old_password,new_password);
         call.enqueue(new Callback<GetEditProfileResponse>() {
             @Override
             public void onResponse(@NotNull Call<GetEditProfileResponse> call, @NotNull Response<GetEditProfileResponse> response) {
@@ -156,97 +214,52 @@ public class AccountSettingActivityNew extends BaseActivity {
 
                     assert getEditProfileresources != null;
                     if (getEditProfileresources.getSuccess()) {
-                        resource.getData().setFirstName(firstName);
-                        resource.getData().setLastName(lastName);
+                        tv_firstname.setText(getEditProfileresources.getData().getFirstName());
+                        tv_email.setText(getEditProfileresources.getData().getEmail());
+                        tv_password.setText("");
+                        new_password_container.setVisibility(View.GONE);
+                        password_title.setText(R.string.password);
                         Toast.makeText(AccountSettingActivityNew.this, getEditProfileresources.getMessages(), Toast.LENGTH_SHORT).show();
-//                        Log.e("data1", resource.getData().getFirstName() + " " + resource.getData().getLastName());
-//                        Log.e("data2", getEditProfileresources.getData().getFirstName() + " " + getEditProfileresources.getData().getLastName());
+                        progress_rl.setVisibility(View.GONE);
                     } else {
                         Toast.makeText(AccountSettingActivityNew.this, getEditProfileresources.getMessages(), Toast.LENGTH_SHORT).show();
+                        progress_rl.setVisibility(View.GONE);
                     }
                 } else {
                     Toast.makeText(AccountSettingActivityNew.this, response.message(), Toast.LENGTH_SHORT).show();
+                    progress_rl.setVisibility(View.GONE);
                 }
             }
 
             @Override
             public void onFailure(Call<GetEditProfileResponse> call, Throwable t) {
                 Toast.makeText(AccountSettingActivityNew.this, t.toString(), Toast.LENGTH_SHORT).show();
+                progress_rl.setVisibility(View.GONE);
             }
         });
     }
 
-    public void retrofitPasswordChange(final String userID, final String oldPassword, final String newPassword) {
-        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-
-        Log.e("put",userID+" "+oldPassword+" "+newPassword);
-        Call<ChangePasswordResponse> call = apiInterface.changePassword(userID, oldPassword, newPassword);
-        call.enqueue(new Callback<ChangePasswordResponse>() {
-            @Override
-            public void onResponse(Call<ChangePasswordResponse> call, Response<ChangePasswordResponse> response) {
-                if (response.isSuccessful()) {
-                    ChangePasswordResponse changePasswordResource = response.body();
-                    if (changePasswordResource.getSuccess()) {
-                        dialog.dismiss();
-                        Toast.makeText(AccountSettingActivityNew.this, changePasswordResource.getMessages(), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(AccountSettingActivityNew.this, changePasswordResource.getMessages(), Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(AccountSettingActivityNew.this, response.message(), Toast.LENGTH_SHORT).show();
-                }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_CAMERA_PERMISSION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            } else {
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
             }
-
-            @Override
-            public void onFailure(Call<ChangePasswordResponse> call, Throwable t) {
-                Toast.makeText(AccountSettingActivityNew.this, t.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        }
     }
 
-    public void dialog(final String name, final CustomBoldtextView textview) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(AccountSettingActivityNew.this);
-        builder.setTitle(name);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-        final EditText input = new EditText(AccountSettingActivityNew.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        input.setLayoutParams(lp);
-        builder.setView(input);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                textview.setText(input.getText().toString());
-            }
-        });
-        builder.show();
-    }
-
-    public void passwordDialog() {
-
-        dialog = new Dialog(AccountSettingActivityNew.this);
-        dialog.setContentView(R.layout.dialog_password_change);
-
-        Window window = dialog.getWindow();
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
-        params.x = 400;
-        params.y = 100;
-        dialog.getWindow().setAttributes(params);
-
-        dialog.show();
-
-        old_password = dialog.findViewById(R.id.dialog_password_change_oldpassword);
-        new_password = dialog.findViewById(R.id.dialog_password_change_newpassword);
-        change_password = dialog.findViewById(R.id.dialog_password_change_change_password);
-
-        change_password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                retrofitPasswordChange(userID, old_password.getText().toString(), new_password.getText().toString());
-            }
-        });
-
+        if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            imageView.setImageBitmap(photo);
+        }
     }
 }

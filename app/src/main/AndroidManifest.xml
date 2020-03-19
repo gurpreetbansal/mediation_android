@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -16,15 +21,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".javaActivities.BaseActivity"></activity>
         <activity android:name=".javaActivities.AccountSettingActivityNew" />
-        <activity android:name=".javaActivities.PrivacyPolicyActivity" />
+        <activity android:name=".javaActivities.PrivacyPolicyActivity"></activity>
         <activity android:name=".javaActivities.TermsAndConditionActivity" />
         <activity android:name=".javaActivities.LogoutActivity" />
-        <activity android:name=".javaActivities.AccountSettingActivityNew" />
         <activity android:name=".javaActivities.LoginActivityNew" />
         <activity android:name=".javaActivities.SignupActivityNew" />
         <activity android:name=".javaActivities.SettingActivity" />
-        <activity android:name=".javaActivities.LoginActivityNew" />
-        <activity android:name=".javaActivities.SignupActivityNew" />
         <activity android:name=".activities.AbundanceActivity" />
         <activity android:name=".activities.FinicialActivity" />
         <activity android:name=".activities.HealthActivity" />

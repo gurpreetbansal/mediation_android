@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.t.meditationapp.Custom_Widgets.CustomBoldEditText;
 import com.t.meditationapp.R;
 
 import java.net.InetAddress;
@@ -20,30 +21,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    }
 
-//    public void CustomDialog(Context context){
-//        Dialog dialog = new Dialog(context);
-//        dialog.setContentView(R.layout.dialog_progress);
-//
-//        Window window = dialog.getWindow();
-//        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-//        WindowManager.LayoutParams params = dialog.getWindow().getAttributes();
-//        params.x = 400;
-//        params.y = 100;
-//        dialog.getWindow().setAttributes(params);
-//
-//        dialog.show();
-//
-////        dialog_recyclerView = dialog.findViewById(R.id.dialog_sendstatus_recyclerView);
-////        selected = dialog.findViewById(R.id.dialog_sendstatus_allselected);
-////        unselected = dialog.findViewById(R.id.dialog_sendstatus_allunselected);
-////        post = dialog.findViewById(R.id.dialog_sendstatus_post);
-//    }
+    }
 
     public boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
@@ -56,5 +38,14 @@ public class BaseActivity extends AppCompatActivity {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
+        if (name.length() < 6) {
+            nameET.setError(err_msg);
+            nameET.requestFocus();
+            return true;
+        }
+        return false;
     }
 }

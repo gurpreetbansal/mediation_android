@@ -108,15 +108,9 @@ public class SignupActivityNew extends BaseActivity {
                     return;
                 }
 
-//                    SyncStateContract.Constants.deviceToken = UUID.randomUUID().toString();
-
-
                 sendData.setFirstName(name_txt);
                 sendData.setEmail(email_txt);
                 sendData.setPassword(password_txt);
-
-//                sendData.setSocialId(social_id);
-//                sendData.setSocialType(social_type);
                 sendData.setDeviceType(device_type);
                 sendData.setDeviceToken(UUID.randomUUID().toString());
                 Log.e("email+", sendData.getEmail());

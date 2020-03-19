@@ -73,6 +73,7 @@
     <string name="subscription">Subscription</string>
     <string name="account_settings">Account Settings</string>
     <string name="first_name">First Name</string>
+    <string name="full_name">Full Name</string>
     <string name="joeden">Joeden</string>
     <string name="edit">EDIT</string>
     <string name="last_name">Last Name</string>
@@ -80,6 +81,8 @@
     <string name="email_address">Email Address</string>
     <string name="email_value">jodenachafer@gmail.com</string>
     <string name="password">Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
     <string name="change">CHANGE</string>
     <string name="connected">*********</string>
     <string name="kevin_smith">kevin Smith</string>
@@ -87,6 +90,7 @@
     <string name="friends">FRIENDS</string>
     <string name="give_your">Give your friends 14 days \n of Selfpause premium for free!</string>
     <string name="invite_friends">Invite Friends</string>
+    <string name="save_changes">Save Changes</string>
     <string name="invite">Invites:</string>
     <string name="email_id">myfriend@gmail.com</string>
     <string name="upgrade">Upgrade to Premium</string>

@@ -17,7 +17,6 @@ import com.t.meditationapp.ModelClasses.TermsAndConditionModelClass;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -34,10 +33,10 @@ public interface ApiInterface {
     Call<GetProfileResponse> getProfile(@Query("user_id") String userId);
 
     @POST("auth/editProfile")
-    Call<GetEditProfileResponse> editProfile(@Query("user_id") String userId, @Query("first_name") String firstName, @Query("last_name") String lastName);
+    Call<GetEditProfileResponse> editProfile(@Query("user_id") String userId, @Query("first_name") String firstName,
+                                             @Query("last_name") String lastName, @Query("old_password") String password,
+                                             @Query("new_password") String new_password);
 
-    @POST("auth/changePassword")
-    Call<ChangePasswordResponse> changePassword(@Query("user_id") String userId, @Query("old_password") String oldPassword, @Query("new_password") String newPassword);
     @POST("auth/logout")
     Call<LogoutModelClass>  getLogout(@Query("user_id") String userid);
 
