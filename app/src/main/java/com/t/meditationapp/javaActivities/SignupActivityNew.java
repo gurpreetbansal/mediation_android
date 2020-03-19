@@ -101,7 +101,7 @@ public class SignupActivityNew extends BaseActivity {
                 if (validateName(password_txt, ed_password, "password is required")) {
                     return;
                 }
-                if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")) {
+                if (validatePassword(password_txt, ed_password, "password must be atleast 6 characters")) {
                     return;
                 }
 

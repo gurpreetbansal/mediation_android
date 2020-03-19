@@ -133,13 +133,18 @@ public class AccountSettingActivityNew extends BaseActivity {
                 password_title.setText(R.string.old_password);
                 new_password_container.setVisibility(View.VISIBLE);
                 tv_new_password.setEnabled(true);
+                tv_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                tv_new_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
             }
         });
 
         password_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (tv_password.getText().toString().equals("") && tv_new_password.getText().toString().equals("")) {
+                    password_title.setText(R.string.password);
+                    new_password_container.setVisibility(View.GONE);
+                }
                 password_edit.setVisibility(View.VISIBLE);
                 password_change.setVisibility(View.GONE);
                 tv_password.setEnabled(false);
@@ -150,8 +155,11 @@ public class AccountSettingActivityNew extends BaseActivity {
         save_changes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (validatePassword(tv_new_password.getText().toString(), tv_new_password, "password must be atleast 6 characters")) {
+                    return;
+                }
                 progress_rl.setVisibility(View.VISIBLE);
-                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_password.getText().toString(),tv_new_password.getText().toString());
+                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_password.getText().toString(), tv_new_password.getText().toString());
             }
         });
 
@@ -205,7 +213,7 @@ public class AccountSettingActivityNew extends BaseActivity {
     public void retrofitEditProfileData(final String userID, final String firstName, String old_password, String new_password) {
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, firstName, old_password,new_password);
+        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, firstName, old_password, new_password);
         call.enqueue(new Callback<GetEditProfileResponse>() {
             @Override
             public void onResponse(@NotNull Call<GetEditProfileResponse> call, @NotNull Response<GetEditProfileResponse> response) {
@@ -219,6 +227,11 @@ public class AccountSettingActivityNew extends BaseActivity {
                         tv_password.setText("");
                         new_password_container.setVisibility(View.GONE);
                         password_title.setText(R.string.password);
+                        password_change.setVisibility(View.GONE);
+                        password_edit.setVisibility(View.VISIBLE);
+                        tv_new_password.setText("");
+                        tv_new_password.setEnabled(false);
+                        tv_password.setEnabled(false);
                         Toast.makeText(AccountSettingActivityNew.this, getEditProfileresources.getMessages(), Toast.LENGTH_SHORT).show();
                         progress_rl.setVisibility(View.GONE);
                     } else {
