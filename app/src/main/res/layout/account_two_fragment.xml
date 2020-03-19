@@ -8,20 +8,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
-        android:orientation="horizontal"
-        android:weightSum="1"
         android:layout_gravity="center"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <ImageView
             android:id="@+id/img_account_back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="0.2"
             android:padding="@dimen/_15sdp"
             android:src="@mipmap/back_button"
-            android:tint="@color/gray_eight"
-            android:layout_gravity="center"/>
+            android:tint="@color/gray_eight" />
 
         <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="0dp"
@@ -42,6 +42,19 @@
             android:padding="@dimen/_15sdp" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/account_two_frag__prog_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
     <ScrollView
 
         android:id="@+id/root_layout"
@@ -50,8 +63,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/_20sdp">
 
 
             <LinearLayout
@@ -78,6 +92,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__first_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -94,6 +109,7 @@
                     android:layout_weight="0.3">
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__first_name_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -134,10 +150,11 @@
                         android:layout_gravity="center"
                         android:gravity="center|left"
                         android:text="@string/last_name"
-                       android:textColor="@color/gray_eight"
+                        android:textColor="@color/gray_eight"
                         android:textSize="@dimen/_12sdp" />
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__last_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -154,6 +171,7 @@
                     android:layout_weight="0.3">
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__last_name_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -198,6 +216,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -211,9 +230,11 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3">
+                    android:layout_weight="0.3"
+                    android:visibility="gone">
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_fragment__email_name_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -258,6 +279,7 @@
                         android:textSize="@dimen/_12sdp" />
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -274,6 +296,7 @@
                     android:layout_weight="0.3">
 
                     <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                        android:id="@+id/account_two_frag__password_change"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -293,6 +316,16 @@
                 <!--                android:textSize="@dimen/_17sdp" />-->
 
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/account_two_frag__done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_80sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginEnd="@dimen/_80sdp"
+                android:text="Done" />
+
         </LinearLayout>
 
     </ScrollView>

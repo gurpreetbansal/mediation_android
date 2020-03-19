@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.app.myapplication.fragment.*
 import com.t.meditationapp.R
+import com.t.meditationapp.javaActivities.AccountSettingActivityNew
 import kotlinx.android.synthetic.main.account_fragment.*
 
 class SettingActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class SettingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.account_fragment)
         txt_account.setOnClickListener(View.OnClickListener {
-            val intent = Intent(this@SettingActivity, AccountSettingActivity::class.java)
+            val intent = Intent(this@SettingActivity, AccountSettingActivityNew::class.java)
             startActivity(intent)
         })
         img_account_first_back.setOnClickListener(View.OnClickListener {
