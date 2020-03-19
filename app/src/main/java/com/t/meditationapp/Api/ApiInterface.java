@@ -1,5 +1,7 @@
 package com.t.meditationapp.Api;
 
+import com.t.meditationapp.ModelClasses.ChangePasswordResponse;
+import com.t.meditationapp.ModelClasses.GetEditProfileResponse;
 import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
@@ -8,7 +10,9 @@ import com.t.meditationapp.ModelClasses.SignupSendData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -19,6 +23,11 @@ public interface ApiInterface {
     Call<LoginModelClass> login(@Body LoginSendData loginSendData);
 
     @POST("auth/getProfile")
-    Call<GetProfileResponse> getProfile();
+    Call<GetProfileResponse> getProfile(@Query("user_id") String userId);
 
+    @POST("auth/editProfile")
+    Call<GetEditProfileResponse> editProfile(@Query("user_id") String userId, @Query("first_name") String firstName, @Query("last_name") String lastName);
+
+    @POST("auth/changePassword")
+    Call<ChangePasswordResponse> changePassword(@Query("user_id") String userId, @Query("old_password") String oldPassword, @Query("new_password") String newPassword);
 }

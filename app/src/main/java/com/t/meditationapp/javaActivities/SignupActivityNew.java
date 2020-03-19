@@ -39,6 +39,9 @@ public class SignupActivityNew extends AppCompatActivity {
     private SignupSendData sendData = new SignupSendData();
     CustomBoldEditText ed_email, ed_name, ed_password;
 
+//    String mypreference = "mypref";
+//    String user_id = "user_id";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_two_activity);
