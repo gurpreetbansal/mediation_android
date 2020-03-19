@@ -127,6 +127,11 @@ public class AccountSettingActivityNew extends BaseActivity {
         password_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                tv_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                tv_new_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+
                 tv_password.setEnabled(true);
                 password_edit.setVisibility(View.GONE);
                 password_change.setVisibility(View.VISIBLE);
@@ -139,6 +144,11 @@ public class AccountSettingActivityNew extends BaseActivity {
         password_change.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (tv_password.getText().toString().equals("") && tv_new_password.getText().toString().equals("")){
+                    password_title.setText(R.string.password);
+                    new_password_container.setVisibility(View.GONE);
+                }
 
                 password_edit.setVisibility(View.VISIBLE);
                 password_change.setVisibility(View.GONE);

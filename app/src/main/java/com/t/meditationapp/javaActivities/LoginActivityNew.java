@@ -17,6 +17,7 @@ import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
 import com.t.meditationapp.R;
+import com.t.meditationapp.activities.HomeActivity;
 import com.t.meditationapp.activities.VoiceSelect_Activity;
 
 import org.jetbrains.annotations.NotNull;
@@ -105,7 +106,7 @@ public class LoginActivityNew extends BaseActivity {
                         editor.putString("user_id", resource.getData().getUserId());
                         editor.apply();
 
-                        startActivity(new Intent(LoginActivityNew.this, VoiceSelect_Activity.class));
+                        startActivity(new Intent(LoginActivityNew.this, HomeActivity.class));
                         Toast.makeText(LoginActivityNew.this, msg, Toast.LENGTH_SHORT).show();
 
                         hideDialog();
@@ -113,6 +114,7 @@ public class LoginActivityNew extends BaseActivity {
                         Log.e("Success Response++++", code + " " + msg);
                     } else {
                         Toast.makeText(LoginActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
+                        hideDialog();
                     }
                 }
             }

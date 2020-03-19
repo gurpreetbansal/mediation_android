@@ -165,6 +165,7 @@ public class SignupActivityNew extends BaseActivity {
             public void onFailure(Call<SignupModelClass> call, Throwable t) {
                 Log.e("Failure Response++++", t.getMessage());
                 Toast.makeText(SignupActivityNew.this, t.toString(), Toast.LENGTH_SHORT).show();
+                hideDialog();
             }
         });
     }
