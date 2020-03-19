@@ -178,15 +178,6 @@ public class SignupActivityNew extends BaseActivity {
         return false;
     }
 
-    private boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
-        if (name.length() < 6) {
-            nameET.setError(err_msg);
-            nameET.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
     public void showDialog() {
 
         if(progressDialog != null && !progressDialog.isShowing())

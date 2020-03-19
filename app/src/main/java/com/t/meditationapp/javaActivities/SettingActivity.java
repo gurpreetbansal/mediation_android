@@ -16,23 +16,23 @@ import com.t.meditationapp.activities.SupportActivity;
 
 public class SettingActivity extends BaseActivity {
 
-    private CustomBoldtextView txt_logout,txt_privacy,txt_terms_condition,txt_help_center,txt_support, txt_account;
+    private CustomBoldtextView txt_logout, txt_privacy, txt_terms_condition, txt_help_center, txt_support, txt_account;
     private ImageView img_account_back;
 
     private ApiInterface apiInterface;
-    LogoutModelClass logoutModelClass=new LogoutModelClass();
+    LogoutModelClass logoutModelClass = new LogoutModelClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_fragment);
 
-        txt_logout=findViewById(R.id.txt_logout);
-        txt_privacy=findViewById(R.id.txt_privacy);
-        txt_terms_condition=findViewById(R.id.txt_terms_condition);
-        img_account_back=findViewById(R.id.img_account_first_back);
-        txt_help_center=findViewById(R.id.txt_help_center);
-        txt_support=findViewById(R.id.txt_support);
+        txt_logout = findViewById(R.id.txt_logout);
+        txt_privacy = findViewById(R.id.txt_privacy);
+        txt_terms_condition = findViewById(R.id.txt_terms_condition);
+        img_account_back = findViewById(R.id.img_account_first_back);
+        txt_help_center = findViewById(R.id.txt_help_center);
+        txt_support = findViewById(R.id.txt_support);
 
         img_account_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class SettingActivity extends BaseActivity {
         txt_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SettingActivity.this,LogoutActivity.class);
+                Intent intent = new Intent(SettingActivity.this, LogoutActivity.class);
                 startActivity(intent);
 
             }
@@ -55,11 +55,13 @@ public class SettingActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SettingActivity.this, AccountSettingActivityNew.class);
                 startActivity(intent);
+            }
+        });
 
         txt_terms_condition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SettingActivity.this,TermsAndConditionActivity.class);
+                Intent intent = new Intent(SettingActivity.this, TermsAndConditionActivity.class);
                 startActivity(intent);
 
             }
@@ -68,7 +70,7 @@ public class SettingActivity extends BaseActivity {
         txt_privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(SettingActivity.this,PrivacyPolicyActivity.class);
+                Intent intent = new Intent(SettingActivity.this, PrivacyPolicyActivity.class);
                 startActivity(intent);
             }
         });
@@ -94,4 +96,4 @@ public class SettingActivity extends BaseActivity {
 
     }
 
-    }
+}
