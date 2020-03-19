@@ -30,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupActivityNew extends AppCompatActivity {
+public class SignupActivityNew extends BaseActivity {
 
     LinearLayout ll_facebook;
     TextView txt_login, txt_sign_up;
@@ -105,15 +105,9 @@ public class SignupActivityNew extends AppCompatActivity {
                     return;
                 }
 
-//                    SyncStateContract.Constants.deviceToken = UUID.randomUUID().toString();
-
-
                 sendData.setFirstName(name_txt);
                 sendData.setEmail(email_txt);
                 sendData.setPassword(password_txt);
-
-//                sendData.setSocialId(social_id);
-//                sendData.setSocialType(social_type);
                 sendData.setDeviceType(device_type);
                 sendData.setDeviceToken(UUID.randomUUID().toString());
                 Log.e("email+", sendData.getEmail());
@@ -175,12 +169,5 @@ public class SignupActivityNew extends AppCompatActivity {
         return false;
     }
 
-    private boolean validatePassword(String name, CustomBoldEditText nameET, String err_msg) {
-        if (name.length() < 6) {
-            nameET.setError(err_msg);
-            nameET.requestFocus();
-            return true;
-        }
-        return false;
-    }
+
 }

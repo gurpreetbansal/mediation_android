@@ -34,7 +34,7 @@ public class LoginActivityNew extends AppCompatActivity {
     ApiInterface apiInterface;
     private LoginSendData loginSendData = new LoginSendData();
 
-    String email_txt, password_txt, name_txt, social_id, social_type, device_type = "Android", device_token, response;
+    String email_txt, password_txt, device_type = "Android";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +58,6 @@ public class LoginActivityNew extends AppCompatActivity {
             public void onClick(View view) {
                 email_txt = ed_email.getText().toString();
                 password_txt = ed_password.getText().toString();
-
-//                Log.e("email", email_txt);
-
                 loginSendData.setEmail(email_txt);
                 loginSendData.setPassword(password_txt);
                 loginSendData.setDeviceToken(UUID.randomUUID().toString());
@@ -75,8 +72,6 @@ public class LoginActivityNew extends AppCompatActivity {
                 if (validatePassword(password_txt, ed_password, "pssword must be atleast 6 characters")) {
                     return;
                 }
-
-//                    Log.e("email+", loginSendData.getEmail());
                 retrofitData();
             }
         });
@@ -93,9 +88,6 @@ public class LoginActivityNew extends AppCompatActivity {
             public void onResponse(@NotNull Call<LoginModelClass> call, @NotNull Response<LoginModelClass> response) {
                 if (response.isSuccessful()) {
                     LoginModelClass resource = response.body();
-//                    Toast.makeText(LoginActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
-//                    Log.e("success", resource.getSuccess().toString());
-                    Log.e("success", resource.getData().getUserId());
                     assert resource != null;
                     if (resource.getSuccess()) {
                         String code = resource.getCode();

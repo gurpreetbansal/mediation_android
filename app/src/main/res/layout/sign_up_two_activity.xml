@@ -59,7 +59,7 @@
                     android:layout_weight="0.7"
                     android:background="@android:color/transparent"
                     android:gravity="center|left"
-                    android:hint="@string/first_name"
+                    android:hint="@string/full_name"
                     android:inputType="text"
                     android:maxLines="1"
                     android:paddingEnd="@dimen/_5sdp"
