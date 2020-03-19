@@ -108,7 +108,7 @@ public class LoginActivityNew extends AppCompatActivity {
 
                         startActivity(new Intent(LoginActivityNew.this, VoiceSelect_Activity.class));
                         Toast.makeText(LoginActivityNew.this, msg, Toast.LENGTH_SHORT).show();
-//                        Log.e("Success Response++++", code + " " + msg);
+                        Log.e("Success Response++++", code + " " + msg);
                     } else {
                         Toast.makeText(LoginActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
                     }

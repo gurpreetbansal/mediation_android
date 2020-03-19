@@ -16,6 +16,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".javaActivities.BaseActivity"></activity>
         <activity android:name=".javaActivities.AccountSettingActivityNew" />
+        <activity android:name=".javaActivities.PrivacyPolicyActivity"></activity>
+        <activity android:name=".javaActivities.TermsAndConditionActivity" />
+        <activity android:name=".javaActivities.LogoutActivity" />
+        <activity android:name=".javaActivities.AccountSettingActivityNew" />
+        <activity android:name=".javaActivities.LoginActivityNew" />
+        <activity android:name=".javaActivities.SignupActivityNew" />
+        <activity android:name=".javaActivities.SettingActivity" />
         <activity android:name=".javaActivities.LoginActivityNew" />
         <activity android:name=".javaActivities.SignupActivityNew" />
         <activity android:name=".activities.AbundanceActivity" />

@@ -44,7 +44,7 @@ class AccountThreeFragment : Fragment()
         ll_setting.setOnClickListener(View.OnClickListener {
 //            val weightFragment = AccountFragment.newInstance()
 //            openFragment(weightFragment)
-             val intent = Intent(context, SettingActivity::class.java)
+             val intent = Intent(context, com.t.meditationapp.javaActivities.SettingActivity::class.java)
              startActivity(intent)
         })
     }

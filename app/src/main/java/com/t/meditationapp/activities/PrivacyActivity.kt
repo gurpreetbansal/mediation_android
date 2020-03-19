@@ -16,7 +16,7 @@ class PrivacyActivity : AppCompatActivity() {
         img_privacy_back.setOnClickListener(View.OnClickListener {
            finish()
         })
-        webview_p.getSettings().setJavaScriptEnabled(true);
-        webview_p.loadUrl(" https://selfpause.com/privacy-policy/");
+//        webview_p.getSettings().setJavaScriptEnabled(true);
+//        webview_p.loadUrl(" https://selfpause.com/privacy-policy/");
     }
 }
