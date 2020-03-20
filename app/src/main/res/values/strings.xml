@@ -98,9 +98,14 @@
     <string name="my_interest">My Interests</string>
     <string name="my_stuff">My Stuff</string>
     <string name="create">Create an account to save your progress</string>
+    <string name="forget_your_pass_txt">Forget your password?</string>
+    <string name="forget_your_pass_txt1">Enter your email below to receive your\npassword reset instructions</string>
+    <string name="send_pass">Send Password</string>
+    <string name="close_send_pass"><u>close</u></string>
     <string name="email">Email</string>
     <string name="log_in">LOG IN</string>
     <string name="dont">Don\'t have an account? <u>Sign Up</u></string>
+    <string name="forget_password"><u>Forget password?</u></string>
     <string name="login_google">LOG IN WITH GOOGLE</string>
     <string name="login_facebook">LOG IN WITH FACEBOOK</string>
     <string name="sign_up">SIGN UP</string>

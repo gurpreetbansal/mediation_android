@@ -121,6 +121,20 @@
                 android:textSize="@dimen/_15sdp" />
 
             <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                android:id="@+id/txt_forgot_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:gravity="right"
+                android:text="@string/forget_password"
+                android:textColor="@color/gray_cthree_"
+                android:textSize="@dimen/_12sdp" />
+
+
+            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

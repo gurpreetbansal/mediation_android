@@ -18,6 +18,7 @@ import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
 import com.t.meditationapp.R;
 import com.t.meditationapp.activities.HomeActivity;
+import com.t.meditationapp.activities.LoginActivity;
 import com.t.meditationapp.activities.VoiceSelect_Activity;
 
 import org.jetbrains.annotations.NotNull;
@@ -32,7 +33,7 @@ public class LoginActivityNew extends BaseActivity {
 
     com.t.meditationapp.Custom_Widgets.CustomBoldEditText ed_password, ed_email;
     com.t.meditationapp.Custom_Widgets.CustomRegularTextView btn_login;
-    CustomBoldtextView btn_signup;
+    CustomBoldtextView btn_signup,txt_forgot_password;
     ApiInterface apiInterface;
     private LoginSendData loginSendData = new LoginSendData();
 
@@ -48,6 +49,7 @@ public class LoginActivityNew extends BaseActivity {
         ed_password = findViewById(R.id.login__password);
         btn_login = findViewById(R.id.login__txt_log_in);
         btn_signup = findViewById(R.id.txt_sign_up);
+        txt_forgot_password=findViewById(R.id.txt_forgot_password);
 
         progressDialog=new ProgressDialog(this);
         progressDialog.setMessage("Please wait......");
@@ -81,6 +83,16 @@ public class LoginActivityNew extends BaseActivity {
                   showDialog();
 //                    Log.e("email+", loginSendData.getEmail());
                 retrofitData();
+            }
+        });
+
+        txt_forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+           startActivity(new Intent(LoginActivityNew.this,ForgetPasswordActivity.class));
+
+
             }
         });
 

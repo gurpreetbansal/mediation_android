@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.t.meditationapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,8 +9,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location.gps" />
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -18,86 +20,126 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".javaActivities.BaseActivity"
-                  android:screenOrientation="portrait" />
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,LockedOrientationActivity">
 
-        <activity android:name=".javaActivities.AccountSettingActivityNew"
-                  android:screenOrientation="portrait" />
-
-        <activity android:name=".javaActivities.PrivacyPolicyActivity"
-                  android:screenOrientation="portrait" />
-
-        <activity android:name=".javaActivities.TermsAndConditionActivity"
-                  android:screenOrientation="portrait" />
-
-        <activity android:name=".javaActivities.LogoutActivity"
+        <activity android:name=".javaActivities.ForgetPasswordActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".javaActivities.LoginActivityNew"
+        <activity
+            android:name=".javaActivities.BaseActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".javaActivities.SignupActivityNew"
+        <activity
+            android:name=".javaActivities.AccountSettingActivityNew"
             android:screenOrientation="portrait" />
-        <activity android:name=".javaActivities.SettingActivity"
+        <activity
+            android:name=".javaActivities.PrivacyPolicyActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AbundanceActivity"
+        <activity
+            android:name=".javaActivities.TermsAndConditionActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.FinicialActivity"
+        <activity
+            android:name=".javaActivities.LogoutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HealthActivity"
+        <activity
+            android:name=".javaActivities.LoginActivityNew"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".javaActivities.SignupActivityNew"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".javaActivities.SettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AthleticActivity"
+        <activity
+            android:name=".activities.AbundanceActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.RelationshipActivity"
+        <activity
+            android:name=".activities.FinicialActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.StressActivity"
+        <activity
+            android:name=".activities.HealthActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.ProfessionalActivity"
+        <activity
+            android:name=".activities.AthleticActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.WeightActivity"
+        <activity
+            android:name=".activities.RelationshipActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.My_RecordingActivity"
+        <activity
+            android:name=".activities.StressActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.PrivacyActivity"
+        <activity
+            android:name=".activities.ProfessionalActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AccountSettingActivity"
+        <activity
+            android:name=".activities.WeightActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.CalculateActivity"
+        <activity
+            android:name=".activities.My_RecordingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.SupportActivity"
+        <activity
+            android:name=".activities.PrivacyActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.NotificationActivity"
+        <activity
+            android:name=".activities.AccountSettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.SettingActivity"
+        <activity
+            android:name=".activities.CalculateActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.My_FavoritesActivity"
+        <activity
+            android:name=".activities.SupportActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AbundanceTwoActivity"
+        <activity
+            android:name=".activities.NotificationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.FinancialTwoActivity"
+        <activity
+            android:name=".activities.SettingActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HealthTwoActivity"
+        <activity
+            android:name=".activities.My_FavoritesActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.AthleicTwoActivity"
+        <activity
+            android:name=".activities.AbundanceTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.RelationshipTwoActivity"
+        <activity
+            android:name=".activities.FinancialTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.StressTwoActivity"
+        <activity
+            android:name=".activities.HealthTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.ProfessionalTwoActivity"
+        <activity
+            android:name=".activities.AthleicTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.WeighTwoActivity"
+        <activity
+            android:name=".activities.RelationshipTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.CreativtyAffirmationsActivity"
+        <activity
+            android:name=".activities.StressTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.HelpCenter_Activity"
+        <activity
+            android:name=".activities.ProfessionalTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.Terms_And_Conditions_Acxtivity"
+        <activity
+            android:name=".activities.WeighTwoActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.GetMore_Activity"
+        <activity
+            android:name=".activities.CreativtyAffirmationsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.LogOutActivity"
+        <activity
+            android:name=".activities.HelpCenter_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.Terms_And_Conditions_Acxtivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.GetMore_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.LogOutActivity"
             android:screenOrientation="portrait" /> <!-- <activity android:name=".activities.LoginActivity" /> -->
-        <activity android:name=".activities.LogOut_Activity"
+        <activity
+            android:name=".activities.LogOut_Activity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activities.HomeActivity"
@@ -130,6 +172,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+<!--        <meta-data android:name="com.facebook.sdk.ApplicationId"-->
+<!--            android:value="@string/facebook_app_id"/>-->
+
+<!--        <activity android:name="com.facebook.FacebookActivity"-->
+<!--            android:configChanges=-->
+<!--                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
+<!--            android:label="@string/app_name" />-->
+<!--        <activity-->
+<!--            android:name="com.facebook.CustomTabActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                <data android:scheme="@string/fb_login_protocol_scheme" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
     </application>
 
 </manifest>

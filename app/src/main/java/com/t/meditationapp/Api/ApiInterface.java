@@ -1,6 +1,7 @@
 package com.t.meditationapp.Api;
 
 import com.t.meditationapp.ModelClasses.ChangePasswordResponse;
+import com.t.meditationapp.ModelClasses.ForgetPasswordModel;
 import com.t.meditationapp.ModelClasses.GetEditProfileResponse;
 import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
@@ -48,6 +49,9 @@ public interface ApiInterface {
 
     @POST("auth/checkSubscription")
     Call<GetResponseSubscription> subscription(@Body SubscriptionModelClass subscriptionModelClass);
+
+    @POST("auth/forgotPassword")
+    Call<ForgetPasswordModel> forgetPassword(@Query("email")String email);
 
 
 
