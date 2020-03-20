@@ -111,7 +111,6 @@ class HomeActivity : AppCompatActivity()/*, FragmentLifecycle*/ {
             mypreference,
             Context.MODE_PRIVATE
         )
-        Toast.makeText(this,pref.getString(user_id, ""), Toast.LENGTH_SHORT).show()
 
         lib.setOnClickListener {
             img_bottom_lib.visibility = View.VISIBLE

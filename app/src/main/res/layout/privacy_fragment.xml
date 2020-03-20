@@ -48,26 +48,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_15sdp"
-            android:layout_marginRight="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp">
+            android:padding="@dimen/_5sdp">
 
-           <!-- <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
-                android:id="@+id/txt_notification"
+            <!--            <com.t.meditationapp.Custom_Widgets.CustomRegularTextView-->
+            <!--                android:id="@+id/txt_terms_conditions"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:gravity="center|left"-->
+            <!--                android:text="@string/lorm"-->
+            <!--                android:textColor="@color/black"-->
+            <!--                android:textSize="@dimen/_12sdp"-->
+            <!--                android:autoLink="web" />-->
+
+            <WebView
+                android:id="@+id/webView_policy_Txt_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center|left"
-                android:text="@string/lorm"
-                android:textColor="@color/gray_eight"
-                android:textSize="@dimen/_12sdp"  />-->
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
-                android:id="@+id/privacy_description_Txt_view"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:textSize="@dimen/_15sdp" />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

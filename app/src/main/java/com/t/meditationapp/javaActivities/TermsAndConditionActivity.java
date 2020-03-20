@@ -2,27 +2,32 @@ package com.t.meditationapp.javaActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
 import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Api.RetrofitClientInstance;
 import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
+import com.t.meditationapp.LoadingBar.ProgressDialogClass;
 import com.t.meditationapp.ModelClasses.GetResponseTermsAndCondition;
-import com.t.meditationapp.ModelClasses.TermsAndConditionModelClass;
 import com.t.meditationapp.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TermsAndConditionActivity extends AppCompatActivity {
+public class TermsAndConditionActivity extends BaseActivity {
 
-    private CustomBoldtextView title_txt_view,description_Txt_view;
+    private CustomBoldtextView title_txt_view;
+    private WebView webView;
     private ImageView img_back_terms;
+    private ProgressDialog progressDialog;
+    private ApiInterface apiInterface;
 
-    ApiInterface apiInterface;
+    String url = "https://selfpause.com/terms-conditions/";
 //    TermsAndConditionModelClass termsAndConditionModelClass=new TermsAndConditionModelClass();
 
     @Override
@@ -31,7 +36,7 @@ public class TermsAndConditionActivity extends AppCompatActivity {
         setContentView(R.layout.terms_and_conditions_fragment);
 
         title_txt_view=findViewById(R.id.title_txt_view);
-        description_Txt_view=findViewById(R.id.description_Txt_view);
+        webView=findViewById(R.id.webView_Terms_Txt_view);
         img_back_terms=findViewById(R.id.img_back_terms);
 
         img_back_terms.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +46,13 @@ public class TermsAndConditionActivity extends AppCompatActivity {
             }
         });
 
+        showWebPage();
+        progressDialog = new ProgressDialog(TermsAndConditionActivity.this);
+        progressDialog.setMessage("Please wait...");
+        showDialog();
 
+//        webView.loadUrl("https://selfpause.com/terms-conditions/");
+//        setContentView(webView);
 
         apiInterface= RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
@@ -54,18 +65,65 @@ public class TermsAndConditionActivity extends AppCompatActivity {
                 GetResponseTermsAndCondition getResponseTermsAndCondition=response.body();
 
                 title_txt_view.setText(getResponseTermsAndCondition.getData().getTitle());
-                description_Txt_view.setText(getResponseTermsAndCondition.getData().getDescription());
+
+                hideDialog();
+
+//                description_Txt_view.setText(getResponseTermsAndCondition.getData().getDescription());
 
             }
 
             @Override
             public void onFailure(Call<GetResponseTermsAndCondition> call, Throwable t) {
 
+                hideDialog();
+
             }
         });
 
 
+    }
 
 
+    private void showWebPage(){
+
+
+        progressDialog = new ProgressDialog(TermsAndConditionActivity.this);
+        progressDialog.setMessage("Loading website........");
+        webView.setWebViewClient(new ProgressDialogClass(progressDialog,getApplicationContext()));
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        webView.loadUrl(url);
+
+//            WebSettings webSettings = webView.getSettings();
+//            webSettings.setJavaScriptEnabled(true);
+//            webView.loadUrl("https://selfpause.com/terms-conditions/");
+
+//            hideDialog();
+
+    }
+
+    public void showDialog() {
+
+        if(progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+    }
+
+    public void hideDialog() {
+
+        if(progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        hideDialog();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        hideDialog();
     }
 }

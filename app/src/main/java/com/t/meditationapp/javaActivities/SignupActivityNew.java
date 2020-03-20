@@ -1,5 +1,6 @@
 package com.t.meditationapp.javaActivities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,8 +40,7 @@ public class SignupActivityNew extends BaseActivity {
     private SignupSendData sendData = new SignupSendData();
     CustomBoldEditText ed_email, ed_name, ed_password;
 
-//    String mypreference = "mypref";
-//    String user_id = "user_id";
+    ProgressDialog progressDialog;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,9 @@ public class SignupActivityNew extends BaseActivity {
 
 // finally change the color
         window.setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Please wait......");
 
 
         ed_email = findViewById(R.id.signup__email);
@@ -112,6 +115,8 @@ public class SignupActivityNew extends BaseActivity {
                 sendData.setDeviceToken(UUID.randomUUID().toString());
                 Log.e("email+", sendData.getEmail());
                 retrofitData();
+
+                showDialog();
             }
         });
 
@@ -145,9 +150,13 @@ public class SignupActivityNew extends BaseActivity {
                         startActivity(new Intent(SignupActivityNew.this, VoiceSelect_Activity.class));
                         Toast.makeText(SignupActivityNew.this, msg, Toast.LENGTH_SHORT).show();
 
+                        hideDialog();
+
                         Log.e("Success Response++++", code + " " + msg);
                     } else {
                         Toast.makeText(SignupActivityNew.this, resource.getMessages(), Toast.LENGTH_SHORT).show();
+
+                        hideDialog();
                     }
                 }
             }
@@ -156,6 +165,7 @@ public class SignupActivityNew extends BaseActivity {
             public void onFailure(Call<SignupModelClass> call, Throwable t) {
                 Log.e("Failure Response++++", t.getMessage());
                 Toast.makeText(SignupActivityNew.this, t.toString(), Toast.LENGTH_SHORT).show();
+                hideDialog();
             }
         });
     }
@@ -169,5 +179,15 @@ public class SignupActivityNew extends BaseActivity {
         return false;
     }
 
+    public void showDialog() {
 
+        if(progressDialog != null && !progressDialog.isShowing())
+            progressDialog.show();
+    }
+
+    public void hideDialog() {
+
+        if(progressDialog != null && progressDialog.isShowing())
+            progressDialog.dismiss();
+    }
 }
