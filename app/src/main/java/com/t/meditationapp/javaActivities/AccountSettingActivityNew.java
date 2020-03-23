@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.app.Activity;
@@ -21,6 +22,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -45,6 +47,7 @@ import com.t.meditationapp.ModelClasses.ChangePasswordResponse;
 import com.t.meditationapp.ModelClasses.GetEditProfileResponse;
 import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.R;
+import com.t.meditationapp.activities.AccountSettingActivity;
 import com.t.meditationapp.utilityClasses.ProgressDialog;
 
 import org.jetbrains.annotations.NotNull;
@@ -56,9 +59,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -74,6 +82,7 @@ public class AccountSettingActivityNew extends BaseActivity {
     RelativeLayout progress_rl;
     CustomBoldEditText tv_firstname, tv_password, tv_new_password;
     File file;
+    String path;
     Uri uri;
 //    Dialog dialog;
 //    SimpleDraweeView profile_image;
@@ -118,6 +127,26 @@ public class AccountSettingActivityNew extends BaseActivity {
                     } else {
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                         startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
+//                        if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+//                            // Create the File where the photo should go
+//                            try {
+//
+//                                file = createImageFile();
+//                                Toast.makeText(AccountSettingActivityNew.this, file.toString(), Toast.LENGTH_SHORT).show();
+//                                // Continue only if the File was successfully created
+//                                if (file != null) {
+//                                    Uri photoURI = FileProvider.getUriForFile(AccountSettingActivityNew.this,
+//                                            AccountSettingActivityNew.this.getApplicationContext().getPackageName()+".provider",
+//                                            file);
+//                                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+//                                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+//                                }
+//                            } catch (Exception ex) {
+//                                // Error occurred while creating the File
+//                                Toast.makeText(AccountSettingActivityNew.this, ex.getMessage().toString(), Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
                     }
                 } else {
                     if (ContextCompat.checkSelfPermission
@@ -186,11 +215,12 @@ public class AccountSettingActivityNew extends BaseActivity {
                         return;
                     }
                 }
+//                RequestBody fileReqBody = RequestBody.create(MediaType.parse("image/*"), file);
+//                MultipartBody.Part part = MultipartBody.Part.createFormData("file", file.getName(), fileReqBody);
                 progress_rl.setVisibility(View.VISIBLE);
-                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_password.getText().toString(), tv_new_password.getText().toString(), file);
+                retrofitEditProfileData(userID, tv_firstname.getText().toString(), tv_password.getText().toString(), tv_new_password.getText().toString());
             }
         });
-
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,15 +271,16 @@ public class AccountSettingActivityNew extends BaseActivity {
 
     }
 
-    public void retrofitEditProfileData(final String userID, final String firstName, String old_password, String new_password, File file) {
+    public void retrofitEditProfileData(final String userID, final String firstName, String old_password, String new_password) {
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, firstName, old_password, new_password, file);
+        Call<GetEditProfileResponse> call = apiInterface.editProfile(userID, firstName, firstName, old_password, new_password);
         call.enqueue(new Callback<GetEditProfileResponse>() {
             @Override
             public void onResponse(@NotNull Call<GetEditProfileResponse> call, @NotNull Response<GetEditProfileResponse> response) {
                 if (response.isSuccessful()) {
                     GetEditProfileResponse getEditProfileresources = response.body();
+                    Log.e("asda",userID.toString());
 
                     assert getEditProfileresources != null;
                     if (getEditProfileresources.getSuccess()) {
@@ -258,6 +289,7 @@ public class AccountSettingActivityNew extends BaseActivity {
                         tv_password.setText("");
                         new_password_container.setVisibility(View.GONE);
                         password_title.setText(R.string.password);
+
                         Toast.makeText(AccountSettingActivityNew.this, getEditProfileresources.getMessages(), Toast.LENGTH_SHORT).show();
                         progress_rl.setVisibility(View.GONE);
                     } else {
@@ -286,6 +318,7 @@ public class AccountSettingActivityNew extends BaseActivity {
                 Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
+
             } else {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
             }
@@ -308,18 +341,35 @@ public class AccountSettingActivityNew extends BaseActivity {
 //            } catch (IOException e) {
 //                e.printStackTrace();
 //        }
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(photo);
+            if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+//                Bitmap myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+//                imageView.setImageBitmap(myBitmap);
+//            } else {
+//                Toast.makeText(this, "Request cancelled or something went wrong.", Toast.LENGTH_SHORT).show();
+//
+                Bitmap photo = (Bitmap) data.getExtras().get("data");
+                imageView.setImageBitmap(photo);
 
-//            Uri uri = data.getData();
-//            if (uri != null) {
-//                Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
-//                file = new File(Objects.requireNonNull(uri.getPath()));
-//            }
-
-//            Log.e("path", uri.toString());
-//            Log.e("patha", uri.getPath());
+            }
         }
+
     }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        path = image.getAbsolutePath();
+        return image;
+    }
+
 
 }

@@ -6,6 +6,7 @@ import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
 import com.t.meditationapp.ModelClasses.GetResponseSubscription;
 import com.t.meditationapp.ModelClasses.GetResponseTermsAndCondition;
+import com.t.meditationapp.ModelClasses.GetVoiceResponse;
 import com.t.meditationapp.ModelClasses.LoginModelClass;
 import com.t.meditationapp.ModelClasses.LoginSendData;
 import com.t.meditationapp.ModelClasses.LogoutModelClass;
@@ -17,10 +18,13 @@ import com.t.meditationapp.ModelClasses.TermsAndConditionModelClass;
 
 import java.io.File;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -37,10 +41,13 @@ public interface ApiInterface {
     @POST("auth/editProfile")
     Call<GetEditProfileResponse> editProfile(@Query("user_id") String userId, @Query("first_name") String firstName,
                                              @Query("last_name") String lastName, @Query("old_password") String password,
-                                             @Query("new_password") String new_password, @Query("file") File file);
+                                             @Query("new_password") String new_password);
 
     @POST("auth/logout")
     Call<LogoutModelClass> getLogout(@Query("user_id") String userid);
+
+    @POST("collections/getVoice")
+    Call<GetVoiceResponse> getVoiceResponse();
 
     @GET("auth/termsCondtions")
     Call<GetResponseTermsAndCondition> termsAndCondition();
