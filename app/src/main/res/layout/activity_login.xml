@@ -160,8 +160,8 @@
                 android:textColor="@color/gray_three"
                 android:textSize="@dimen/_15sdp" />
 
-            <LinearLayout
-                android:id="@+id/ll_facebook"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/loginActivity_ll_google"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/txt_get_full"
@@ -178,12 +178,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:text="@string/login_google"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
 
-            </LinearLayout>
+                <com.google.android.gms.common.internal.SignInButtonImpl
+                    android:id="@+id/login_button_google"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/ll_google"

@@ -14,9 +14,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Api.RetrofitClientInstance;
 import com.t.meditationapp.Custom_Widgets.CustomBoldEditText;
@@ -31,7 +44,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignupActivityNew extends BaseActivity {
+public class SignupActivityNew extends BaseActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     LinearLayout ll_facebook;
     TextView txt_login, txt_sign_up;
@@ -39,6 +52,13 @@ public class SignupActivityNew extends BaseActivity {
     ApiInterface apiInterface;
     private SignupSendData sendData = new SignupSendData();
     CustomBoldEditText ed_email, ed_name, ed_password;
+
+    private static final String TAG = null;
+    private LinearLayout loginActivity_ll_google;
+    GoogleApiClient googleApiClient;
+    private static final int REQ_CODE = 1;
+    GoogleSignInClient mGoogleSignInClient;
+//    SignInButton signInButton;
 
     ProgressDialog progressDialog;
 
@@ -120,6 +140,35 @@ public class SignupActivityNew extends BaseActivity {
             }
         });
 
+//        signInButton=findViewById(R.id.signinwithGogle);
+        loginActivity_ll_google=findViewById(R.id.ll_google);
+
+
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+//        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestEmail().build();
+//
+//        googleApiClient = new GoogleApiClient.Builder(this).enableAutoManage(this, this)
+//                .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions).build();
+
+        loginActivity_ll_google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+//                startActivityForResult(intent, REQ_CODE);
+//                showDialog();
+                Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, REQ_CODE);
+            }
+        });
+
+
     }
 
     public void retrofitData() {
@@ -190,4 +239,77 @@ public class SignupActivityNew extends BaseActivity {
         if(progressDialog != null && progressDialog.isShowing())
             progressDialog.dismiss();
     }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+        Toast.makeText(this, "" + connectionResult, Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+//        if (requestCode == REQ_CODE) {
+//            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+//            handleSignInResult(result);
+//        }
+//
+//
+//    }
+//
+//    private void handleSignInResult(GoogleSignInResult result) {
+//        if (result.isSuccess()) {
+//            gotoProfile();
+//        } else {
+//            Toast.makeText(getApplicationContext(), "Sign in cancel", Toast.LENGTH_LONG).show();
+//            hideDialog();
+//        }
+//    }
+//    private void gotoProfile () {
+//        Intent intent = new Intent(LoginActivityNew.this, HomeActivity.class);
+//        startActivity(intent);
+//        hideDialog();
+//    }
+
+        if (requestCode == REQ_CODE) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            handleSignInResult(task);
+        }
+        else {
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+
+            // Signed in successfully, show authenticated UI.
+//            updateUI(account);
+
+            Toast.makeText(this, "Successfully registered"+account, Toast.LENGTH_SHORT).show();
+
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+//    private void signOut() {
+//        mGoogleSignInClient.signOut()
+//                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        Toast.makeText(MainActivity.this, "Logout sucess"+task, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }
 }

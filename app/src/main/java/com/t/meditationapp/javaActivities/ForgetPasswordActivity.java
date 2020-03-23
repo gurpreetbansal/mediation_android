@@ -86,7 +86,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 
                 if (forgetPasswordModel.getSuccess()){
 
-                    Toast.makeText(ForgetPasswordActivity.this, forgetPasswordModel.getMessages(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPasswordActivity.this, forgetPasswordModel.getMessages(), Toast.LENGTH_LONG).show();
                     startActivity(new Intent(ForgetPasswordActivity.this,LoginActivityNew.class));
                     finish();
 
