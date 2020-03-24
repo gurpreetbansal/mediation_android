@@ -6,10 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,10 +21,12 @@ import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.t.meditationapp.Api.ApiInterface;
 import com.t.meditationapp.Api.RetrofitClientInstance;
+import com.t.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.t.meditationapp.ModelClasses.GetProfileResponse;
 import com.t.meditationapp.ModelClasses.GetVoiceData;
 import com.t.meditationapp.ModelClasses.GetVoiceResponse;
@@ -29,23 +34,31 @@ import com.t.meditationapp.R;
 import com.t.meditationapp.adapter.VoiceAdapter;
 import com.t.meditationapp.javaActivities.AccountSettingActivityNew;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
+import io.blackbox_vision.wheelview.view.DatePickerPopUpWindow;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class VoiceSelect_Activity extends AppCompatActivity {
     TextView img_next;
-    ImageView img_back_tool;
+    ImageView img_back_tool, toggle;
     LinearLayout ll_alice_bg, ll_tiff_bg, ll_kevin_bg;
     ApiInterface apiInterface;
     GetVoiceResponse resource;
     RecyclerView recyclerView;
     List<GetVoiceData> voiceData;
-    Integer[] id_unselected = {R.mipmap.alice_bg,R.mipmap.signup_fb_bg,R.mipmap.blue_curve_bg};
-    Integer[] id_selected = {R.mipmap.alice_bg_two,R.mipmap.signup_fb_bg_two,R.mipmap.blue_curve_bg_two};
+    CustomBoldtextView time;
+    Integer[] id_unselected = {R.mipmap.alice_bg_two, R.mipmap.signup_fb_bg, R.mipmap.blue_curve_bg};
+    Integer[] id_selected = {R.mipmap.alice_bg, R.mipmap.signup_fb_bg_two, R.mipmap.blue_curve_bg_two};
+    int mHour, mMinute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +69,8 @@ public class VoiceSelect_Activity extends AppCompatActivity {
         ll_tiff_bg = (LinearLayout) findViewById(R.id.ll_tiff_bg);
         ll_kevin_bg = (LinearLayout) findViewById(R.id.ll_kevin_bg);
         recyclerView = findViewById(R.id.voice_select_rv);
+        time = findViewById(R.id.voice_select_time);
+        toggle = findViewById(R.id.toggleButton);
 
         retrofitGetVoice();
 
@@ -77,38 +92,35 @@ public class VoiceSelect_Activity extends AppCompatActivity {
             }
         });
 
-        ll_alice_bg.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onClick(View v) {
-                ll_alice_bg.setBackgroundResource(R.mipmap.alice_bg);
-                ll_tiff_bg.setBackgroundResource(R.mipmap.signup_fb_bg);
-                ll_kevin_bg.setBackgroundResource(R.mipmap.blue_curve_bg);
-            }
-        });
-        ll_tiff_bg.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onClick(View v) {
-                ll_alice_bg.setBackgroundResource(R.mipmap.alice_bg_two);
-                ll_tiff_bg.setBackgroundResource(R.mipmap.signup_fb_bg_two);
-                ll_kevin_bg.setBackgroundResource(R.mipmap.blue_curve_bg);
+        LinearGradient shade = new LinearGradient(0f, 0f, 0f, time.getTextSize(), getResources().getColor(R.color.time_color_a), getResources().getColor(R.color.time_color_b), Shader.TileMode.CLAMP);
+        time.getPaint().setShader(shade);
 
-            }
-        });
-        ll_kevin_bg.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
+        time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ll_alice_bg.setBackgroundResource(R.mipmap.alice_bg_two);
-                ll_tiff_bg.setBackgroundResource(R.mipmap.signup_fb_bg);
-                ll_kevin_bg.setBackgroundResource(R.mipmap.blue_curve_bg_two);
+
+                final Calendar c = Calendar.getInstance();
+                mHour = c.get(Calendar.HOUR_OF_DAY);
+                mMinute = c.get(Calendar.MINUTE);
+
+                // Launch Time Picker Dialog
+                TimePickerDialog timePickerDialog = new TimePickerDialog(VoiceSelect_Activity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+
+                            @Override
+                            public void onTimeSet(TimePicker view, int hourOfDay,
+                                                  int minute) {
+
+                                time.setText(hourOfDay + ":" + minute);
+                            }
+                        }, mHour, mMinute, false);
+                timePickerDialog.show();
 
             }
         });
     }
 
-    public void retrofitGetVoice(){
+    public void retrofitGetVoice() {
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
         Call<GetVoiceResponse> call = apiInterface.getVoiceResponse();
         call.enqueue(new Callback<GetVoiceResponse>() {
@@ -122,7 +134,7 @@ public class VoiceSelect_Activity extends AppCompatActivity {
                     if (resource.getSuccess()) {
                         voiceData = resource.getData();
                         recyclerView.setLayoutManager(new LinearLayoutManager(VoiceSelect_Activity.this));
-                        VoiceAdapter adapter = new VoiceAdapter(voiceData,VoiceSelect_Activity.this);
+                        VoiceAdapter adapter = new VoiceAdapter(voiceData, VoiceSelect_Activity.this, id_selected, id_unselected);
                         recyclerView.setAdapter(adapter);
 
                     } else {
@@ -137,4 +149,5 @@ public class VoiceSelect_Activity extends AppCompatActivity {
             }
         });
     }
+
 }
