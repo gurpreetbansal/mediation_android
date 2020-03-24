@@ -54,14 +54,14 @@
             android:layout_weight="0.7"
             android:orientation="vertical">
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/creativity_affirmations"
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_17sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/inspiration"

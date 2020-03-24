@@ -20,7 +20,7 @@
             android:tint="@color/gray_eight"
             android:padding="@dimen/_15sdp"/>
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:id="@+id/title_txt_view"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:gravity="center"
             android:textColor="@color/gray_eight">
 
-        </com.t.meditationapp.Custom_Widgets.CustomBoldtextView>
+        </com.example.meditationapp.Custom_Widgets.CustomBoldtextView>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"

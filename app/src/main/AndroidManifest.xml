@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.t.meditationapp">
+    package="com.example.meditationapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -23,148 +23,148 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,LockedOrientationActivity">
 
-        <activity android:name=".javaActivities.ForgetPasswordActivity"
+        <activity android:name="com.example.meditationapp.javaActivities.ForgetPasswordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.BaseActivity"
+            android:name="com.example.meditationapp.javaActivities.BaseActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.AccountSettingActivityNew"
+            android:name="com.example.meditationapp.javaActivities.AccountSettingActivityNew"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.PrivacyPolicyActivity"
+            android:name="com.example.meditationapp.javaActivities.PrivacyPolicyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.TermsAndConditionActivity"
+            android:name="com.example.meditationapp.javaActivities.TermsAndConditionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.LogoutActivity"
+            android:name="com.example.meditationapp.javaActivities.LogoutActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".javaActivities.LoginActivityNew"
+            android:name="com.example.meditationapp.javaActivities.LoginActivityNew"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".javaActivities.SignupActivityNew"
+            android:name="com.example.meditationapp.javaActivities.SignupActivityNew"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".javaActivities.SettingActivity"
+            android:name="com.example.meditationapp.javaActivities.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AbundanceActivity"
+            android:name="com.example.meditationapp.activities.AbundanceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.FinicialActivity"
+            android:name="com.example.meditationapp.activities.FinicialActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.HealthActivity"
+            android:name="com.example.meditationapp.activities.HealthActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AthleticActivity"
+            android:name="com.example.meditationapp.activities.AthleticActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.RelationshipActivity"
+            android:name="com.example.meditationapp.activities.RelationshipActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.StressActivity"
+            android:name="com.example.meditationapp.activities.StressActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ProfessionalActivity"
+            android:name="com.example.meditationapp.activities.ProfessionalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WeightActivity"
+            android:name="com.example.meditationapp.activities.WeightActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.My_RecordingActivity"
+            android:name="com.example.meditationapp.activities.My_RecordingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.PrivacyActivity"
+            android:name="com.example.meditationapp.activities.PrivacyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AccountSettingActivity"
+            android:name="com.example.meditationapp.activities.AccountSettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.CalculateActivity"
+            android:name="com.example.meditationapp.activities.CalculateActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SupportActivity"
+            android:name="com.example.meditationapp.activities.SupportActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.NotificationActivity"
+            android:name="com.example.meditationapp.activities.NotificationActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SettingActivity"
+            android:name="com.example.meditationapp.activities.SettingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.My_FavoritesActivity"
+            android:name="com.example.meditationapp.activities.My_FavoritesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AbundanceTwoActivity"
+            android:name="com.example.meditationapp.activities.AbundanceTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.FinancialTwoActivity"
+            android:name="com.example.meditationapp.activities.FinancialTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.HealthTwoActivity"
+            android:name="com.example.meditationapp.activities.HealthTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.AthleicTwoActivity"
+            android:name="com.example.meditationapp.activities.AthleicTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.RelationshipTwoActivity"
+            android:name="com.example.meditationapp.activities.RelationshipTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.StressTwoActivity"
+            android:name="com.example.meditationapp.activities.StressTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.ProfessionalTwoActivity"
+            android:name="com.example.meditationapp.activities.ProfessionalTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.WeighTwoActivity"
+            android:name="com.example.meditationapp.activities.WeighTwoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.CreativtyAffirmationsActivity"
+            android:name="com.example.meditationapp.activities.CreativtyAffirmationsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.HelpCenter_Activity"
+            android:name="com.example.meditationapp.activities.HelpCenter_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Terms_And_Conditions_Acxtivity"
+            android:name="com.example.meditationapp.activities.Terms_And_Conditions_Acxtivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.GetMore_Activity"
+            android:name="com.example.meditationapp.activities.GetMore_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.LogOutActivity"
+            android:name="com.example.meditationapp.activities.LogOutActivity"
             android:screenOrientation="portrait" /> <!-- <activity android:name=".activities.LoginActivity" /> -->
         <activity
-            android:name=".activities.LogOut_Activity"
+            android:name="com.example.meditationapp.activities.LogOut_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.HomeActivity"
+            android:name="com.example.meditationapp.activities.HomeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name=".activities.CategoriesActivities"
+            android:name="com.example.meditationapp.activities.CategoriesActivities"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SignUp_Activity"
+            android:name="com.example.meditationapp.activities.SignUp_Activity"
             android:screenOrientation="portrait" /> <!-- <activity android:name=".activities.SplashActivity" /> -->
         <activity
-            android:name=".activities.PromoActivity"
+            android:name="com.example.meditationapp.activities.PromoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.QuitActivity"
+            android:name="com.example.meditationapp.activities.QuitActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.CongratulationActivity"
+            android:name="com.example.meditationapp.activities.CongratulationActivity"
             android:screenOrientation="portrait" /> <!-- <activity android:name=".activities.HomeActivity" /> -->
         <activity
-            android:name=".activities.VoiceSelect_Activity"
+            android:name="com.example.meditationapp.activities.VoiceSelect_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.Splash_Activity"
+            android:name="com.example.meditationapp.activities.Splash_Activity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

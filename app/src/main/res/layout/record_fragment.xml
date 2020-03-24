@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:gravity="center">
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/my_affirmations"
@@ -21,7 +21,7 @@
             android:textSize="@dimen/_25sdp"
             android:layout_gravity="center"
             android:gravity="center"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/press_and_hold"
@@ -58,7 +58,7 @@
             android:background="@mipmap/gray_bg_three"
             android:layout_gravity="center"
             android:gravity="center">
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/type_your_affirmation_here"
@@ -99,7 +99,7 @@
             android:orientation="vertical"
             android:weightSum="1"
             android:background="@mipmap/affirmation_bg_green_btn">
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/happy_at_work"
@@ -135,7 +135,7 @@
             android:orientation="vertical"
             android:weightSum="1"
             android:background="@mipmap/affirmation_bg_green_btn">
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/happy_now"
@@ -171,7 +171,7 @@
             android:orientation="vertical"
             android:weightSum="1"
             android:background="@mipmap/affirmation_bg_green_btn">
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/happiness_is"
@@ -207,7 +207,7 @@
             android:orientation="vertical"
             android:weightSum="1"
             android:background="@mipmap/affirmation_bg_red_btn">
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/happiness_is_easy"

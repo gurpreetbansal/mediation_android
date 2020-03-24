@@ -25,7 +25,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:src="@mipmap/pause" />
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:id="@+id/txt_promo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:background="@drawable/curve_gray_fill"
             >
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_dot"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_15sdp"
@@ -78,7 +78,7 @@
             android:background="@mipmap/gray_bg_two"
           android:layout_marginTop="@dimen/_20sdp"  >
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_month"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -102,7 +102,7 @@
             android:backgroundTint="@color/white"
             android:layout_marginTop="@dimen/_5sdp"  >
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_year"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -114,7 +114,7 @@
 
         </LinearLayout>
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
 
             android:id="@+id/txt_terms"
             android:layout_width="match_parent"

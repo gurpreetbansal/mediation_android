@@ -24,7 +24,7 @@
             android:src="@mipmap/back_button"
             android:tint="@color/gray_eight" />
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -34,7 +34,7 @@
             android:textColor="@color/gray_eight"
             android:textSize="@dimen/_19sdp">
 
-        </com.t.meditationapp.Custom_Widgets.CustomBoldtextView>
+        </com.example.meditationapp.Custom_Widgets.CustomBoldtextView>
 
         <ImageView
             android:layout_width="0dp"
@@ -120,7 +120,7 @@
                     android:layout_weight="0.7"
                     android:orientation="vertical">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -129,7 +129,7 @@
                         android:textColor="@color/gray_eight"
                         android:textSize="@dimen/_14sdp" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                         android:id="@+id/account_two_frag__first_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                     android:layout_weight="0.3"
                     android:orientation="horizontal">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__first_name_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
                         android:textSize="@dimen/_10sdp"
                         android:visibility="visible" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__first_name_change"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                     android:layout_weight="0.7"
                     android:orientation="vertical">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -206,7 +206,7 @@
                         android:textColor="@color/gray_eight"
                         android:textSize="@dimen/_14sdp" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -243,7 +243,7 @@
                     android:layout_weight="0.8"
                     android:orientation="vertical">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__password_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -253,7 +253,7 @@
                         android:textColor="@color/gray_eight"
                         android:textSize="@dimen/_14sdp" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                         android:id="@+id/account_two_frag__password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -273,7 +273,7 @@
                     android:layout_weight="0.3"
                     android:orientation="horizontal">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__password_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -283,7 +283,7 @@
                         android:textColor="#f89c90"
                         android:textSize="@dimen/_10sdp" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:id="@+id/account_two_frag__password_change"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                     android:layout_weight="0.8"
                     android:orientation="vertical">
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -332,7 +332,7 @@
                         android:textColor="@color/gray_eight"
                         android:textSize="@dimen/_14sdp" />
 
-                    <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                    <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                         android:id="@+id/account_two_frag__new_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -367,7 +367,7 @@
             <!--                android:layout_marginEnd="@dimen/_80sdp"-->
             <!--                android:text="Done" />-->
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/account_two_frag__done"
                 android:layout_width="@dimen/_150sdp"
                 android:layout_height="@dimen/_40sdp"

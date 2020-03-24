@@ -20,7 +20,7 @@
             android:src="@mipmap/back_button"
             android:tint="@color/gray_eight" />
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -30,7 +30,7 @@
             android:textColor="@color/gray_eight"
             android:textSize="@dimen/_20sdp">
 
-        </com.t.meditationapp.Custom_Widgets.CustomBoldtextView>
+        </com.example.meditationapp.Custom_Widgets.CustomBoldtextView>
 
         <ImageView
             android:layout_width="0dp"
@@ -54,7 +54,7 @@
             android:layout_marginBottom="@dimen/_20sdp"
             android:orientation="vertical">
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_support"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_help_center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -87,7 +87,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_terms_condition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_privacy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_sub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                 android:textColor="@color/gray_eight"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_logout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

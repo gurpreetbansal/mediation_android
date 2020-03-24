@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/_20sdp"
         android:src="@mipmap/logo" />
 
-    <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+    <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -51,7 +51,7 @@
                     android:padding="@dimen/_10sdp"
                     android:src="@mipmap/first_name" />
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                     android:id="@+id/signup__name"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -81,7 +81,7 @@
                     android:padding="@dimen/_13sdp"
                     android:src="@mipmap/email" />
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                     android:id="@+id/signup__email"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -111,7 +111,7 @@
                     android:padding="@dimen/_10sdp"
                     android:src="@mipmap/lock_login" />
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+                <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                     android:id="@+id/signup__password"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -127,7 +127,7 @@
                     android:textSize="@dimen/_15sdp" />
             </LinearLayout>
 
-            <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+            <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
                 android:id="@+id/signup__txt_sign_up"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
@@ -141,7 +141,7 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/signup_txt_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 android:textColor="@color/gray_cthree_"
                 android:textSize="@dimen/_13sdp" />
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+            <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                 android:id="@+id/txt_or"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <LinearLayout
-                android:id="@+id/ll_facebook"
+                android:id="@+id/ll_facebook_signup"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/txt_get_full"
@@ -180,7 +180,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+                <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
                     android:id="@+id/txt_fb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -189,6 +189,15 @@
                     android:text="@string/signup_facebook"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button_facebook_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="30dp" />
 
             </LinearLayout>
 
@@ -206,7 +215,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+                <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
                     android:id="@+id/txt_google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

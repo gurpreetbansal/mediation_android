@@ -21,7 +21,7 @@
             android:src="@mipmap/back_button"
             android:tint="@color/gray_eight" />
 
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:id="@+id/privacy_title_txt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

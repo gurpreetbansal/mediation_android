@@ -42,7 +42,7 @@
             android:backgroundTint="#e6e6e6"
             android:orientation="horizontal">
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+            <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -81,7 +81,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -105,7 +105,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -129,7 +129,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -153,7 +153,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -177,7 +177,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -201,7 +201,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -225,7 +225,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
@@ -249,7 +249,7 @@
                 android:orientation="vertical"
                 android:weightSum="1">
 
-                <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+                <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|left|bottom"
