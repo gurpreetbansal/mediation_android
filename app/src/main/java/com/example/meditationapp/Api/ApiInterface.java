@@ -1,6 +1,8 @@
 package com.example.meditationapp.Api;
 
+import com.example.meditationapp.ModelClasses.CategoriesModelClass;
 import com.example.meditationapp.ModelClasses.ForgetPasswordModel;
+import com.example.meditationapp.ModelClasses.GetCategoriesModelClass;
 import com.example.meditationapp.ModelClasses.GetEditProfileResponse;
 import com.example.meditationapp.ModelClasses.GetProfileResponse;
 import com.example.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
@@ -12,6 +14,8 @@ import com.example.meditationapp.ModelClasses.LogoutModelClass;
 import com.example.meditationapp.ModelClasses.SignupModelClass;
 import com.example.meditationapp.ModelClasses.SignupSendData;
 import com.example.meditationapp.ModelClasses.SubscriptionModelClass;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -50,7 +54,9 @@ public interface ApiInterface {
     @POST("auth/forgotPassword")
     Call<ForgetPasswordModel> forgetPassword(@Query("email")String email);
 
-
+    @POST("collections/getContentsInfo")
+    Call<GetCategoriesModelClass> getCategory(@Query("user_id") String userId,
+                                                    @Query("type_id") String typeId);
 
 
 }
