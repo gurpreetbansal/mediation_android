@@ -12,10 +12,22 @@ import com.example.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.example.meditationapp.ModelClasses.LogoutModelClass;
 import com.example.meditationapp.R;
 import com.example.meditationapp.activities.HelpCenter_Activity;
+import com.example.meditationapp.Api.ApiInterface;
+import com.example.meditationapp.Api.RetrofitClientInstance;
+import com.example.meditationapp.Custom_Widgets.CustomBoldtextView;
+import com.example.meditationapp.ModelClasses.LogoutModelClass;
+import com.example.meditationapp.R;
+import com.example.meditationapp.activities.HelpCenter_Activity;
+import com.facebook.AccessToken;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.HttpMethod;
+import com.facebook.login.LoginManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.HTTP;
 
 public class LogoutActivity extends BaseActivity {
 
@@ -23,6 +35,8 @@ public class LogoutActivity extends BaseActivity {
 
     ApiInterface apiInterface;
     LogoutModelClass logoutModelClass=new LogoutModelClass();
+
+    LoginManager loginManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +56,19 @@ public class LogoutActivity extends BaseActivity {
             public void onClick(View v) {
 
                 getLogout(userid);
+
+                new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions", null
+                        , HttpMethod.DELETE, new GraphRequest.Callback() {
+                    @Override
+                    public void onCompleted(GraphResponse response) {
+
+                        Toast.makeText(LogoutActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LogoutActivity.this, LoginActivityNew.class));
+                        finishAffinity();
+                        LoginManager.getInstance().logOut();
+                    }
+                }).executeAsync();
+
             }
         });
 

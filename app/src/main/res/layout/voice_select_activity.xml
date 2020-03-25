@@ -20,6 +20,20 @@
             android:layout_marginTop="-5dp"
             android:src="@mipmap/bar" />
 
+        <RelativeLayout
+            android:id="@+id/voice_select_prog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
         <ScrollView
 
             android:id="@+id/root_layout"
@@ -57,147 +71,6 @@
                     android:id="@+id/voice_select_rv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-                <!--one-->
-                <LinearLayout
-                    android:id="@+id/ll_alice_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@mipmap/alice_bg_two"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:weightSum="1">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/female_one" />
-
-                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:layout_weight="0.3"
-                        android:gravity="center|left"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/alice"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_weight="0.3"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/flag_one" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/play_btn" />
-
-                </LinearLayout>
-                <!--two-->
-                <LinearLayout
-                    android:id="@+id/ll_tiff_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@mipmap/signup_fb_bg"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:weightSum="1">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/female_two" />
-
-                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:layout_weight="0.3"
-                        android:gravity="center|left"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/tiffany"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_weight="0.3"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/flag_two" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/play_btn" />
-
-                </LinearLayout>
-                <!--three-->
-                <LinearLayout
-                    android:id="@+id/ll_kevin_bg"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:background="@mipmap/blue_curve_bg"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    android:weightSum="1">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/male_one" />
-
-                    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|left"
-                        android:layout_weight="0.3"
-                        android:gravity="center|left"
-                        android:padding="@dimen/_5sdp"
-                        android:text="@string/kevin"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_weight="0.3"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/flag_one" />
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_weight="0.2"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@mipmap/play_btn" />
-
-                </LinearLayout>
 
                 <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
                     android:layout_width="match_parent"
@@ -238,13 +111,25 @@
                         android:layout_height="@dimen/_15sdp"
                         android:layout_weight="0.5"></LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/toggleButton"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/toggleButton_off"
                         android:layout_width="0dp"
                         android:layout_height="@dimen/_15sdp"
                         android:layout_gravity="center"
                         android:layout_weight="0.15"
-                        android:background="@mipmap/toggle_btn" />
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        app:srcCompat="@mipmap/toggle_off" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/toggleButton_on"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.15"
+                        android:adjustViewBounds="true"
+                        android:visibility="gone"
+                        app:srcCompat="@mipmap/toggle_on" />
 
                 </LinearLayout>
 

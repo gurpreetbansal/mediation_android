@@ -9,6 +9,7 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import com.example.meditationapp.R
 import com.example.meditationapp.javaActivities.LoginActivityNew
+import com.facebook.FacebookCallback
 
 class Splash_Activity : AppCompatActivity() {
     private val SPLASH_TIME_OUT = 3000
@@ -55,6 +56,13 @@ class Splash_Activity : AppCompatActivity() {
                 }, SPLASH_TIME_OUT.toLong()
             )
         }
+
+//        profile = Profile.getCurrentProfile().getCurrentProfile();
+//        if (profile != null) {
+//            // user has logged in
+//        } else {
+//            // user has not logged in
+//        }
 
 
 

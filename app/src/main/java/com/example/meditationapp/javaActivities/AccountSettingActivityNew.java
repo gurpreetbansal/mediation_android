@@ -255,7 +255,7 @@ public class AccountSettingActivityNew extends BaseActivity {
             public void onResponse(@NotNull Call<GetEditProfileResponse> call, @NotNull Response<GetEditProfileResponse> response) {
                 if (response.isSuccessful()) {
                     GetEditProfileResponse getEditProfileresources = response.body();
-                    Log.e("asda",userID.toString());
+                    Log.e("asda", userID.toString());
 
                     assert getEditProfileresources != null;
                     if (getEditProfileresources.getSuccess()) {

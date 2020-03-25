@@ -3,9 +3,23 @@ package com.example.meditationapp.Api;
 import com.example.meditationapp.ModelClasses.GetEditProfileResponse;
 import com.example.meditationapp.ModelClasses.GetProfileResponse;
 import com.example.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
+import com.example.meditationapp.ModelClasses.GetResponseSetVoice;
 import com.example.meditationapp.ModelClasses.GetResponseSubscription;
 import com.example.meditationapp.ModelClasses.GetResponseTermsAndCondition;
 import com.example.meditationapp.ModelClasses.GetVoiceResponse;
+import com.example.meditationapp.ModelClasses.LoginModelClass;
+import com.example.meditationapp.ModelClasses.LoginSendData;
+import com.example.meditationapp.ModelClasses.LogoutModelClass;
+import com.example.meditationapp.ModelClasses.SetVoiceModelClass;
+import com.example.meditationapp.ModelClasses.SignupModelClass;
+import com.example.meditationapp.ModelClasses.SignupSendData;
+import com.example.meditationapp.ModelClasses.SubscriptionModelClass;
+import com.example.meditationapp.ModelClasses.ForgetPasswordModel;
+import com.example.meditationapp.ModelClasses.GetEditProfileResponse;
+import com.example.meditationapp.ModelClasses.GetProfileResponse;
+import com.example.meditationapp.ModelClasses.GetResponsePricyAndPolicy;
+import com.example.meditationapp.ModelClasses.GetResponseSubscription;
+import com.example.meditationapp.ModelClasses.GetResponseTermsAndCondition;
 import com.example.meditationapp.ModelClasses.LoginModelClass;
 import com.example.meditationapp.ModelClasses.LoginSendData;
 import com.example.meditationapp.ModelClasses.LogoutModelClass;
@@ -36,7 +50,10 @@ public interface ApiInterface {
                                              @Query("new_password") String new_password);
 
     @POST("auth/logout")
-    Call<LogoutModelClass> getLogout(@Query("user_id") String userid);
+    Call<LogoutModelClass>  getLogout(@Query("user_id") String userid);
+
+    @POST("collections/setVoice")
+    Call<GetResponseSetVoice>  setVoice(@Body SetVoiceModelClass setVoiceModelClass);
 
     @POST("collections/getVoice")
     Call<GetVoiceResponse> getVoiceResponse();
@@ -49,6 +66,9 @@ public interface ApiInterface {
 
     @POST("auth/checkSubscription")
     Call<GetResponseSubscription> subscription(@Body SubscriptionModelClass subscriptionModelClass);
+
+    @POST("auth/forgotPassword")
+    Call<ForgetPasswordModel> forgetPassword(@Query("email")String email);
 
 
 }

@@ -168,7 +168,7 @@
                 android:textSize="@dimen/_15sdp" />
 
             <LinearLayout
-                android:id="@+id/ll_facebook"
+                android:id="@+id/ll_facebook_signup"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_below="@+id/txt_get_full"
@@ -189,6 +189,15 @@
                     android:text="@string/signup_facebook"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button_facebook_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="30dp" />
 
             </LinearLayout>
 
@@ -215,6 +224,7 @@
                     android:text="@string/signup_google"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
+
 
             </LinearLayout>
         </LinearLayout>

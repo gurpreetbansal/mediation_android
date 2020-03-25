@@ -1,7 +1,6 @@
 package com.example.meditationapp.adapter;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,6 @@ import com.example.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.example.meditationapp.ModelClasses.GetVoiceData;
 import com.example.meditationapp.R;
 
-import java.io.IOException;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -29,6 +27,17 @@ public class VoiceAdapter extends RecyclerView.Adapter<VoiceAdapter.ItemView> {
     Integer[] id_unselected;
     int index = 0;
     MediaPlayer mediaPlayer;
+
+    OnitemClickListener onitemClickListener;
+
+    public interface OnitemClickListener {
+        void startPlayer(String url, int position);
+
+    }
+
+    public void setOnitemClickListener(OnitemClickListener onitemClickListener) {
+        this.onitemClickListener = onitemClickListener;
+    }
 
     public VoiceAdapter(List<GetVoiceData> voiceData, Context context, Integer[] id_selected, Integer[] id_unselected) {
         this.voiceData = voiceData;
@@ -64,32 +73,19 @@ public class VoiceAdapter extends RecyclerView.Adapter<VoiceAdapter.ItemView> {
                 .load(voiceData.get(position).getImage())
                 .into(holder.image);
 
+
         holder.ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 index = position;
-                if (mediaPlayer != null) {
-                    mediaPlayer.release();
-                    mediaPlayer = null;
-                }
                 notifyDataSetChanged();
                 holder.play_image.setImageResource(R.mipmap.pause);
 
                 String url = voiceData.get(position).getVoices();
-                mediaPlayer = new MediaPlayer();
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                try {
-                    mediaPlayer.setDataSource(url);
-                    mediaPlayer.prepareAsync();
-                    mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                        @Override
-                        public void onPrepared(MediaPlayer mp) {
-                            mediaPlayer.start();
-                        }
-                    });
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (onitemClickListener != null) {
+                    onitemClickListener.startPlayer(url,position);
                 }
+
             }
         });
 
