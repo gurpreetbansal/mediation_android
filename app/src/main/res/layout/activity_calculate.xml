@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.t.meditationapp.activities.CalculateActivity">
+    tools:context="com.example.meditationapp.activities.CalculateActivity">
 
     <TextView
         android:id="@+id/textView"

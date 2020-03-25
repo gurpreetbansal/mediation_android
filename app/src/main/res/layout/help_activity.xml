@@ -18,7 +18,7 @@
             android:src="@mipmap/back_button"
             android:padding="@dimen/_15sdp"
             android:tint="@color/gray_eight"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
@@ -28,7 +28,7 @@
             android:textColor="@color/gray_eight"
             android:text="@string/help_center">
 
-        </com.t.meditationapp.Custom_Widgets.CustomBoldtextView>
+        </com.example.meditationapp.Custom_Widgets.CustomBoldtextView>
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_marginRight="@dimen/_15sdp"
             android:layout_marginTop="@dimen/_20sdp">
 
-            <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+            <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
                 android:id="@+id/txt_notification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

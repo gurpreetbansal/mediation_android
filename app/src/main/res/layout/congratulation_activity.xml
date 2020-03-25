@@ -13,7 +13,7 @@
         android:layout_marginRight="@dimen/_20sdp"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_50sdp">
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:textColor="@color/gray_eight"
             android:layout_gravity="center"
             android:gravity="center"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/you_completed"
@@ -87,7 +87,7 @@
                 android:src="@mipmap/session_six"
                 android:padding="@dimen/_5sdp"/>
         </LinearLayout>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/rate_this_session"
@@ -103,7 +103,7 @@
             android:layout_height="@dimen/_39sdp"
             android:src="@mipmap/rating_image"/>
 
-        <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+        <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/got_feedback"

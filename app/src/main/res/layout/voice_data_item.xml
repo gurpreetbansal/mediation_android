@@ -18,7 +18,7 @@
         android:padding="@dimen/_5sdp"
         android:src="@mipmap/female_one"/>
 
-    <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+    <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
         android:id="@+id/voice_data_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

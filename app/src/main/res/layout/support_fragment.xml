@@ -18,7 +18,7 @@
             android:src="@mipmap/back_button"
             android:padding="@dimen/_15sdp"
             android:tint="@color/gray_eight"/>
-        <com.t.meditationapp.Custom_Widgets.CustomBoldtextView
+        <com.example.meditationapp.Custom_Widgets.CustomBoldtextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.6"
@@ -83,7 +83,7 @@
             android:background="@drawable/gray_border_edit"
             android:orientation="horizontal">
 
-            <com.t.meditationapp.Custom_Widgets.CustomBoldEditText
+            <com.example.meditationapp.Custom_Widgets.CustomBoldEditText
                 android:id="@+id/ed_add_des"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
 
         </LinearLayout>
 
-        <com.t.meditationapp.Custom_Widgets.CustomRegularTextView
+        <com.example.meditationapp.Custom_Widgets.CustomRegularTextView
             android:id="@+id/txt_sumbit"
 
             android:layout_width="match_parent"
