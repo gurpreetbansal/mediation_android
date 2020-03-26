@@ -1,6 +1,5 @@
-package com.example.meditationapp.activities;
+package com.example.meditationapp.javaActivities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,7 +12,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.meditationapp.Api.ApiInterface;
@@ -22,13 +20,9 @@ import com.example.meditationapp.Custom_Widgets.CustomBoldtextView;
 import com.example.meditationapp.ModelClasses.CategoriesModelClass;
 import com.example.meditationapp.ModelClasses.GetCategoriesModelClass;
 import com.example.meditationapp.R;
+import com.example.meditationapp.activities.HomeActivity;
 import com.example.meditationapp.adapter.CategoriesAdapter;
-import com.example.meditationapp.javaActivities.BaseActivity;
-import com.imarkinfotech.slowme.utilityClasses.RetrofitClient;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import retrofit2.Call;
@@ -123,7 +117,7 @@ public class CategoriesActivities extends BaseActivity {
         next_cat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cat=new Intent(CategoriesActivities.this,HomeActivity.class);
+                Intent cat=new Intent(CategoriesActivities.this, HomeActivity.class);
                 startActivity(cat);
             }
         });

@@ -43,6 +43,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.My
         Picasso.get().load(categoriesModelClasses.get(position).getFileImage()).into(holder.backImageView);
 
 
+
+
     }
 
     @Override

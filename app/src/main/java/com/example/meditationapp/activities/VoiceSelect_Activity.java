@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.meditationapp.R;
+import com.example.meditationapp.javaActivities.CategoriesActivities;
 
 public class VoiceSelect_Activity extends AppCompatActivity {
 TextView img_next;
@@ -29,7 +30,7 @@ TextView img_next;
         img_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cat=new Intent(VoiceSelect_Activity.this,CategoriesActivities.class);
+                Intent cat=new Intent(VoiceSelect_Activity.this, CategoriesActivities.class);
                 startActivity(cat);
             }
         });

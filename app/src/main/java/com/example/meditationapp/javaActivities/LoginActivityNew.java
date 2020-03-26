@@ -20,6 +20,8 @@ import com.example.meditationapp.activities.LoginActivity;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -42,6 +44,9 @@ import com.example.meditationapp.ModelClasses.LoginSendData;
 import com.example.meditationapp.R;
 import com.example.meditationapp.activities.HomeActivity;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -178,10 +183,38 @@ public class LoginActivityNew extends BaseActivity implements GoogleApiClient.On
             @Override
             public void onSuccess(LoginResult loginResult) {
 
-                Intent intent=new Intent(LoginActivityNew.this,HomeActivity.class);
-                startActivity(intent);
-                finish();
-                Toast.makeText(LoginActivityNew.this, ""+loginResult.toString(), Toast.LENGTH_SHORT).show();
+//                Intent intent=new Intent(LoginActivityNew.this,HomeActivity.class);
+//                startActivity(intent);
+//                finish();
+//                Toast.makeText(LoginActivityNew.this, ""+loginResult.toString(), Toast.LENGTH_SHORT).show();
+
+        GraphRequest request = GraphRequest.newMeRequest(
+                loginResult.getAccessToken()
+                , new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+
+                        Log.e("Signup Activity",response.toString());
+
+                        try {
+                            String email= object.getString("email");
+                            Intent intent=new Intent(LoginActivityNew.this, HomeActivity.class);startActivity(intent);
+                            finish();
+                            Toast.makeText(LoginActivityNew.this, "Login Successfully" + email, Toast.LENGTH_SHORT).show();
+
+                            Log.e("RESULT EMAIL",email);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }
+                );
+
+                Bundle parameter = new Bundle();
+                parameter.putString("fields","email");
+                request.setParameters(parameter);
+                request.executeAsync();
             }
 
             @Override
