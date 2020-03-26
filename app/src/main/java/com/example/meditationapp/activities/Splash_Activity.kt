@@ -49,7 +49,7 @@ class Splash_Activity : AppCompatActivity() {
         }else{
             handler.postDelayed(
                 {
-                    val intent = Intent(this, VoiceSelect_Activity::class.java)
+                    val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     finish()
 

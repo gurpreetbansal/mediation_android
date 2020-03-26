@@ -112,8 +112,7 @@ public class VoiceSelect_Activity extends BaseActivity {
 
 
                 retrofitSetVoice(setVoiceModelClass);
-//                Intent cat = new Intent(VoiceSelect_Activity.this, CategoriesActivities.class);
-//                startActivity(cat);
+
             }
         });
         img_back_tool.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +241,9 @@ public class VoiceSelect_Activity extends BaseActivity {
                     Log.e("success", getResponseSetVoice.getMessages());
                     if (resource.getSuccess()) {
                         setVoiceData = getResponseSetVoice.getData();
-                        Toast.makeText(VoiceSelect_Activity.this, getResponseSetVoice.getCode(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(VoiceSelect_Activity.this, getResponseSetVoice.getCode(), Toast.LENGTH_SHORT).show();
+                        Intent cat = new Intent(VoiceSelect_Activity.this, CategoriesActivities.class);
+                        startActivity(cat);
                     }
                 }
 
