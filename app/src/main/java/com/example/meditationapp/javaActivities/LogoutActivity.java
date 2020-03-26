@@ -1,6 +1,9 @@
 package com.example.meditationapp.javaActivities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +47,14 @@ public class LogoutActivity extends BaseActivity {
         SharedPreferences sharedPreferences=getSharedPreferences("mypref",0);
         final String userid =sharedPreferences.getString("user_id","");
 
+//        IntentFilter intentFilter=new IntentFilter();
+//        intentFilter.addAction("com.package.ACTION_LOGOUT");
+//        registerReceiver(new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                finish();
+//            }
+//        },intentFilter);
 
         txt_yes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +67,7 @@ public class LogoutActivity extends BaseActivity {
                     @Override
                     public void onCompleted(GraphResponse response) {
 
-                        Toast.makeText(LogoutActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LogoutActivity.this, "Logout Success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LogoutActivity.this, LoginActivityNew.class));
                         finishAffinity();
                         LoginManager.getInstance().logOut();
